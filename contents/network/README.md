@@ -1,11 +1,12 @@
-# 주제명
+# Network (네트워크)
 
 ## 정리 자료
 
-- 정리한 사람 : 파일 경로
-<!-- ex) 홍길동 : [sample-file](./sample-file) -->
+<!-- ex) 홍길동 : [자료명](./materials/자료명) -->
+
+- 서그림 : OSI 7계층 & HTTP 요청방식 & TCP 3-way-handshake
+- 권혁진 : TCP/UDP & HTTP/HTTPS
 
 ## 질의응답
 
-- 질문 1
-- 질문 2
+> 아직 없습니다.
