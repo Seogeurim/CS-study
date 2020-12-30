@@ -19,7 +19,7 @@
 
 ### Repository Rule
 
-- **주제별 정리 양식 파일** : 양식 파일 바로가기
+- **주제별 정리** : 자료 정리, 질의응답
 - **Commit convention rule** : [대주제]-소주제-분류(자료정리/질의응답)  
   _ex) [DataStructure] Stack 자료정리_
 
