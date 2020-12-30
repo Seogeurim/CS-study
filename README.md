@@ -53,6 +53,8 @@
 
 ## Data Structure (자료구조)
 
+### [📖 정리노트](./contents/data-structure)
+
 - Array
 - LinkedList
 - Stack
@@ -66,7 +68,11 @@
 - Set
 - Map
 
+[🔝 목차로 돌아가기](#table-of-contents)
+
 ## Operating System (운영체제)
+
+### [📖 정리노트](./contents/operating-system)
 
 - 프로세스와 스레드의 차이
 - 스케줄러
@@ -90,7 +96,11 @@
   - Locality
   - Caching line
 
+[🔝 목차로 돌아가기](#table-of-contents)
+
 ## Database (데이터베이스)
+
+### [📖 정리노트](./contents/database)
 
 - 데이터베이스
 - 데이터베이스 성능
@@ -105,7 +115,11 @@
     - Document Model
     - Column Model
 
+[🔝 목차로 돌아가기](#table-of-contents)
+
 ## Network (네트워크)
+
+### [📖 정리노트](./contents/network)
 
 - OSI 7 계층
 - GET, POST 방식의 차이점
@@ -115,7 +129,11 @@
 - DNS round robin 방식
 - 웹 통신의 큰 흐름
 
+[🔝 목차로 돌아가기](#table-of-contents)
+
 ## Design Pattern (디자인 패턴)
+
+### [📖 정리노트](./contents/design-pattern)
 
 - 디자인 패턴의 개념과 종류
 - Singleton 패턴
@@ -124,7 +142,11 @@
 - Factory Method 패턴
 - MVC1 패턴과 MVC2 패턴
 
+[🔝 목차로 돌아가기](#table-of-contents)
+
 ## Algorithm (알고리즘)
+
+### [📖 정리노트](./contents/algorithm)
 
 - 시간복잡도와 공간복잡도
   - Fibonacci에서의 세 가지(Recursion, Dynamic Programming, 반복) 방식에 대한 시간복잡도와 공간복잡도 차이
@@ -138,7 +160,13 @@
 - 문자열 처리
   - KMP 알고리즘
 
+[🔝 목차로 돌아가기](#table-of-contents)
+
 ## Language
+
+### [📖 정리노트](./contents/language)
 
 - Java
 - C++
+
+[🔝 목차로 돌아가기](#table-of-contents)
