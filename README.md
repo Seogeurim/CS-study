@@ -92,7 +92,7 @@
 - 가상 메모리
   - Demand Paging (요구 페이징)
   - 페이지 교체 알고리즘
-- 캐시
+- [캐시](https://nukw0n-dev.tistory.com/9?category=877997)
   - Locality
   - Caching line
 
