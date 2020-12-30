@@ -5,12 +5,12 @@
 ## Table of Contents
 
 - [About](#About)
-- [Data Structure](<#Data-Structure-(자료구조)>)
-- [Operating System](<Operating-System-(운영체제)>)
-- [Database](<#Database-(데이터베이스)>)
-- [Network](<#Network-(네트워크)>)
-- [Design Pattern](<#Design-Pattern-(디자인-패턴)>)
-- [Algorithm](<#Algorithm-(알고리즘)>)
+- [Data Structure](#data-structure-자료구조)
+- [Operating System](#operating-system-운영체제)
+- [Database](#database-데이터베이스)
+- [Network](#network-네트워크)
+- [Design Pattern](#design-pattern-디자인-패턴)
+- [Algorithm](#algorithm-알고리즘)
 - [Language](#Language)
 
 ## About
@@ -20,7 +20,7 @@
 ### Repository Rule
 
 - **주제별 정리 양식 파일** : 양식 파일 바로가기
-- **Commit convention rule** : [대주제]-소주제-분류(자료정리/질의응답)
+- **Commit convention rule** : [대주제]-소주제-분류(자료정리/질의응답)  
   _ex) [DataStructure] Stack 자료정리_
 
 ### Collaborator
