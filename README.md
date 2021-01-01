@@ -56,7 +56,7 @@
 ### [📖 정리노트](./contents/data-structure)
 
 - Array
-- LinkedList
+- Linked List
 - Stack
 - Queue
 - Tree
