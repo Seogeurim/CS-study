@@ -59,6 +59,7 @@
 - Linked List
 - Stack
 - Queue
+- Deque
 - Tree
 - Binary Tree
   - Heap, Priority Queue
