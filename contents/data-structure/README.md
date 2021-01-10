@@ -9,13 +9,37 @@
 동일한 자료형의 데이터를 일렬로 나열한 자료구조이다.
 
 - 선형 자료구조
-- 데이터 접근이 용이하다. (인덱스로 접근)
-- 데이터 삽입/삭제가 어렵다.
+- 데이터 접근이 용이하다. (인덱스로 접근 - Random Access가 가능)
+- 데이터 삽입/삭제가 어렵다. (Shift 해줘야 함)
 - 구조가 간단하여 프로그램 작성이 쉽다.
 
 ### Array 구현
 
+#### Java
+
+```java
+/* 선언 (Declaring Arrays) */
+int[] arrayOfInt;
+String[] arrayOfString;
+
+/* 생성 (Creating Arrays) */
+arrayOfInt = new int[100];
+arrayOfString = new String[10];
+
+/* 초기화 (Initializing Arrays) */
+for (int i = 0; i < arrayOfInt.length; i++) {
+  arrayOfInt[i] = i;
+}
+arrayOfString = new String[]{"hello", "world"};
+String[] name = {"Stacy", "Tracy", "Dorothy"};
+```
+
 ### Array 시간 복잡도 & 공간 복잡도
+
+#### 시간 복잡도
+
+- 데이터 조회 : O(1)
+- 데이터 삽입/삭제하기 : O(n)
 
 ---
 
@@ -30,7 +54,11 @@
 
 ### Linked List 구현
 
-### Linked List 시간 복잡도 & 공간 복잡도
+### Linked List 시간 복잡도
+
+- 데이터 조회 : O(n)
+- **맨 앞/뒤에** 데이터 삽입/삭제하기 : O(1)
+- **중간의 원하는 위치에** 데이터 삽입/삭제하기 : O(n) _(원하는 원소까지 데이터를 조회하는 과정이 있으므로 O(n) + O(1))_
 
 ---
 
@@ -277,6 +305,10 @@ class Trie {
 각 노드에서 그 자식 노드에 대한 정보를 배열로 가지고 있고, 그 노드들의 개수를 생각해봤을 때 **공간 복잡도 측면에서는 비효율적**이다.
 
 ### Trie 활용
+
+- 문자열 탐색
+- 검색어 자동 완성
+- 사전 찾기
 
 ---
 
