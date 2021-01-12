@@ -1,5 +1,7 @@
 # Language
 
-## Java
+## [Java](./java)
+
+- Java Overview & Basic
 
 ## C++
