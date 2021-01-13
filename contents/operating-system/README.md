@@ -90,9 +90,9 @@ Example
 >```c
 >Counter++;
 >=>
->		LOAD register1 = counter
->	INCREASE register1 = register1 +1
->	STORE counter = register1
+>LOAD register1 = counter
+>INCREASE register1 = register1 +1
+>STORE counter = register1
 >Counter--;
 >=>
 >LOAD register2 = counter
