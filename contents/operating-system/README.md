@@ -64,7 +64,7 @@ Blocking & Non-blocking
 
 - Async & Blocking
 
-  잘 상상이 않가는 그림이다. 작업완료 여부를 호출된 쪽에서 신경 쓰고 제어권도 호출된 쪽에서 가지고 있다. 사실상 Sync & Blocking과 거의 같아 잘 사용되지 않는다.
+  잘 상상이 안 가는 그림이다. 작업완료 여부를 호출된 쪽에서 신경 쓰고 제어권도 호출된 쪽에서 가지고 있다. 사실상 Sync & Blocking과 거의 같아 잘 사용되지 않는다.
 
 - Async & Non-blocking 
 
