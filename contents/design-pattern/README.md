@@ -25,8 +25,18 @@ class Singleton(object):
     def __new__(cls):
       if not hasattr(cls, 'instance'):
         cls.instance = super(Singleton, cls).__new__(cls)
-      print(cls.instance)
       return cls.instance
+    
+s = Singleton()
+print("Object created", s)
+
+s1 = Singleton()
+print("Object created", s1)
+
+''' <실행 결과>
+Object created <__main__.Singleton object at 0x1005c12b0>
+Object created <__main__.Singleton object at 0x1005c12b0>
+'''
 ```
 - 한 개의 instance 클래스 인스턴스를 생성한다.
 - 이미 생성된 인스턴스가 있다면 재사용한다.
@@ -68,7 +78,7 @@ Instance already created: <__main__.Singleton object at 0x10ca025c0>
 '''
 ```
 
-- getInstance()로 얻어오는 주소가 일치하는 것을 볼 수 있다.
+- `getInstance()`로 얻어오는 주소가 일치하는 것을 볼 수 있다.
 
 ### 모듈 싱글톤
 
