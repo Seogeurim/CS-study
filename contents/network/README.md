@@ -6,6 +6,7 @@
 
 - 서그림 : OSI 7계층 & HTTP 요청방식 & TCP 3-way-handshake
 - 권혁진 : TCP/UDP & HTTP/HTTPS
+- 윤가영 : [DNS round robin & network flow](./materials/yoongoing_networkflow.pdf)
 
 ## 질의응답
 
