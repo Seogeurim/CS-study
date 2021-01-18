@@ -163,7 +163,7 @@ void bubbleSort(int[] arr) {
 
 ### Merge Sort (합병정렬)
 
-합병정렬이란, 문제를 분리하고 각각을 해결한 후 다시 합치는 Divide & Concuer 방식을 사용한다.
+합병정렬은 문제를 분리하고 각각을 해결한 후 다시 합치는 Divide & Concuer 방식을 사용한다.
 
 - Divide(분할) : 초기 배열을 2개의 배열로 분할한다.
 
@@ -237,7 +237,112 @@ void merge(int[] arr, int start, int mid, int end) {
 - 배열을 사용하면 임시 배열을 사용해야 한다.
 - 배열의 크기 가 커지면 데이터의 이동 횟수가 많아져 시간이 커질 수 있다.
 
+
+
 ### Quick Sort
+
+합병정렬은 문제를 분리하고 각각을 해결한 후 다시 합치는 Divide & Concuer 방식을 사용한다.
+
+1. 주어진 배열에서 pivot을 선정한다.(밑에 소스코드에선 맨 앞의 값으로 함)
+2. pivot을 기준으로 작은 값들이 모인 배열과 큰 값들이 모인 배열로 비균등하게 배열을 두 부분으로 나눈다. 
+3. 해당 pivot을 기준으로 배열을 나누고 나면 pivot은 고정 된다. (재귀 호출마다 pivot의 위치는 매번 고정 되므로 이 알고리즘이 반드시 끝나는 것을 보장한다.)
+4. 분할된 두 배열에서 재귀적으로 이 과정을 반복한다.
+
+
+
+**시간복잡도**
+
+Avaerage Case : $O(n\log_2n)$
+
+Worst Case : $O(n\log_2n)$
+
+
+
+**Example**
+
+> 3 7 6 5 1 4 2 : 초기배열
+>
+> **pivot = 3**
+>
+> 3	**7** 6 5 1 4 **2** : low = 1, high = 6, swap!
+>
+> 3	2 **6** 5 1 **4** 7 : low = 2, high, = 5
+>
+> 3	2 **6** 5 **1** 4 7 : low = 2, high = 4, swap!
+>
+> 3	2 1 **5** 6 4 7 : low = 3, high = 3
+>
+> 3	2 **1** **5** 6 4 7 : low = 3, high = 2 (서로 지나침) => high 와 pivot swap!
+>
+> 1 2	 **3**	 5 6 4 7
+>
+> **pivot = 1**
+>
+> ...
+>
+> **pivot = 5**
+>
+> ...
+
+
+
+**Source Code**
+
+```java
+void quickSort(int[] arr, int start, int end) {
+  if (start < end) { // 배열의 크기가 충분히 작아 질 때 까지 나눔
+    int p = partition(arr, start, end); // 파티션을 적용 했을 때 피봇의 인덱스를 구함
+
+    quickSort(arr, start, p - 1); // 처음 부터 피봇 전,
+    quickSort(arr, p + 1, end); // 피봇 후 부터 마지막 까지 다시 퀵소트를 함
+  }
+}
+
+int partition(int[] arr, int start, int end) {
+  int low = start + 1; // pivot을 맨 왼쪽 값으로 할것이기 때문에 그 다음 값부터 확인
+  int high = end; 
+  int pivot = arr[start]; // 가장 왼쪽 값을 pivot으로 설정
+
+  while (low <= high) { // 양쪽에서 탐색하면서 둘이 겹쳐져 지나칠때 까지 한다.
+    while (low <= end && arr[low] < pivot) { // 앞에서 부터 비교중 pivot 보다 크면 stop
+      low++;
+    }
+    while (high >= start && arr[high] > pivot) { // 뒤에서 부터 비교중 pivot 보다 작으면 stop
+      high--;
+    }
+    if (low < high) { // low , high 가 겹쳐져 지나친게 아니면 둘을 바꿔줌
+      swap(arr, low, high);
+    }
+  }
+  swap(arr, start, high); // 마지막으로 pivot과 high index의 값을 바꾸면 high index 가 pivot의 index가 됨
+  return high; // pivot 위치 반환
+}
+
+void swap(int[] arr, int i, int j) {
+  int temp = arr[j];
+  arr[j] = arr[i];
+  arr[i] = temp;
+}
+
+```
+
+**장점**
+
+- 속도가 매우 빠르다 
+- 추가적인 메모리 공간을 필요로 하지 않는다
+
+**단점**
+
+- 불균형 분할이 많아질 경우 최악의 경우 시간이 오래 걸릴 수 있다.
+  - 불균형 분할을 방지하기 위해 세값의 중위법을 사용해서 피벗을 선택하는 경우가 많다.
+
+### Quick Sort vs Merge Sort
+
+ 두 정렬 알고리즘 다 average case $O(n\log_2n)$ 이고 심지어 Quick Sort는 worst case $O(n^2)$이다. 하지만 보통 일반적으로 퀵소트가 빠른것으로 알고 있다. 
+
+일단 Quick Sort 의 worst case 는 (맨앞의 수를 pivot으로 가정) 아이러니 하게 정렬이 잘 되어 있는 배열에서 나온다. 
+
+이렇게 Quick Sort의 worst case 와 평균 적인 Merge Sort 를 비교해 보아도 Quick Sort가 더 빠르게 나온다. 그 이유는 실제 시간 정렬 되는 중 Merge Sort는 분할 과정에서 추가적인 배열을 생성해야 한다는 문제가 있다. 이러한 과정에서 계속적으로 Delay 가 생기다 보니 결과적으로 Quick Sort가 더욱 빠르게 정렬이 되는 것이다.
 
 
 
