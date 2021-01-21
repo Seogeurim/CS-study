@@ -6,7 +6,7 @@
 
 - 정희재 : 프로세스와 스레드, 스케줄러
 - 장주섭 : 동기와 비동기의 차이 , 프로세스의 동기화
-- 이세명 : Paging, Segmentation
+- 이세명 : [Paging, Segmentation](./materials/이세명_operating-system_memory-management.pdf)
 - 서그림 : 가상 메모리
 - 권혁진 : 캐시
 

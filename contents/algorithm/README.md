@@ -323,6 +323,8 @@ void swap(int[] arr, int i, int j) {
 
 이렇게 Quick Sort의 worst case 와 평균 적인 Merge Sort 를 비교해 보아도 Quick Sort가 더 빠르게 나온다. 그 이유는 실제 시간 정렬 되는 중 Merge Sort는 분할 과정에서 추가적인 배열을 생성해야 한다는 문제가 있다. 이러한 과정에서 계속적으로 Delay 가 생기다 보니 결과적으로 Quick Sort가 더욱 빠르게 정렬이 되는 것이다.
 
+- 권혁진 : DFS와 BFS
+- 정희재 : [Segment Tree](./materials/세그먼트트리.pdf)
 ## 질의응답
 
 > 아직 없습니다.
