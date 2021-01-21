@@ -237,7 +237,7 @@ void merge(int[] arr, int start, int mid, int end) {
 #### 시간복잡도
 
 - Avaerage Case : ![formula](<https://render.githubusercontent.com/render/math?math=O(n\log_2n)>)
-- Worst Case : ![formula](<https://render.githubusercontent.com/render/math?math=O(n\log_2n)>)
+- Worst Case : ![formula](<https://render.githubusercontent.com/render/math?math=O(n^2)>)
 
 #### Example
 
