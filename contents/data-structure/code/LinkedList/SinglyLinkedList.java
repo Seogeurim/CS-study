@@ -1,53 +1,80 @@
 package LinkedList;
 
-public class SinglyLinkedList<E> {
+public class SinglyLinkedList<E> implements ILinkedList<E> {
     private Node<E> head;
     private Node<E> tail;
-    private long size;
+    private int size;
 
     public SinglyLinkedList() {
         head = tail = null;
         size = 0;
     }
 
-    public long size() {
+    @Override
+    public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    @Override
     public E first() {
         if (isEmpty()) return null;
         return head.getElement();
     }
 
+    @Override
     public E last() {
         if (isEmpty()) return null;
         return tail.getElement();
     }
 
+    @Override
     public void addFirst(E e) {
         head = new Node<>(e, head);
         if (isEmpty()) tail = head;
         size ++;
     }
 
+    @Override
     public void addLast(E e) {
-        Node<E> newNode = new Node<>(e, null);
-        if (isEmpty()) head = newNode;
-        else tail.setNext(newNode);
-        tail = newNode;
+        Node<E> newest = new Node<>(e, null);
+        if (isEmpty()) head = newest;
+        else tail.setNext(newest);
+        tail = newest;
         size ++;
     }
 
+    @Override
     public E removeFirst() {
         if (isEmpty()) return null;
         E target = head.getElement();
         head = head.getNext();
         size --;
-        if (size == 0) tail = null;
+        if (isEmpty()) tail = null;
+        return target;
+    }
+
+    @Override
+    public E removeLast() {
+        if (isEmpty()) return null;
+        E target;
+        if (head == tail) {
+            target = head.getElement();
+            head = tail = null;
+        } else {
+            Node<E> current = head;
+            while (current.getNext() != tail) {
+                current = current.getNext();
+            }
+            target = tail.getElement();
+            tail = current;
+            tail.setNext(null);
+        }
+        size --;
         return target;
     }
 
@@ -69,7 +96,9 @@ public class SinglyLinkedList<E> {
         private E element;
         private Node<E> next;
 
-        public Node() { }
+        public Node() {
+            this(null, null);
+        }
 
         public Node(E element, Node<E> next) {
             this.element = element;
@@ -80,16 +109,16 @@ public class SinglyLinkedList<E> {
             return element;
         }
 
+        public void setElement(E element) {
+            this.element = element;
+        }
+
         public Node<E> getNext() {
             return next;
         }
 
-        public void setElement(E newElement) {
-            this.element = newElement;
-        }
-
-        public void setNext(Node<E> newNext) {
-            this.next = newNext;
+        public void setNext(Node<E> next) {
+            this.next = next;
         }
     }
 }
