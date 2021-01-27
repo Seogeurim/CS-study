@@ -1,20 +1,6 @@
-public class LinkedListExample {
-    public static void main(String[] args) {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
-        sll.addLast(10);
-        sll.addFirst(5);
-        sll.addFirst(3);
-        sll.addLast(12);
-        System.out.println(sll);
-        System.out.println(sll.size());
-        System.out.println(sll.first());
-        System.out.println(sll.last());
-        System.out.println(sll.removeFirst());
-        System.out.println(sll);
-    }
-}
+package LinkedList;
 
-class SinglyLinkedList<E> {
+public class SinglyLinkedList<E> {
     private Node<E> head;
     private Node<E> tail;
     private long size;
@@ -78,34 +64,33 @@ class SinglyLinkedList<E> {
         sb.append(current.getElement()).append("]");
         return sb.toString();
     }
-}
 
-class Node<E> {
-    private E element;
-    private Node<E> next;
+    private static class Node<E> {
+        private E element;
+        private Node<E> next;
 
-    public Node() {
-        this(null, null);
-    }
+        public Node() { }
 
-    public Node(E element, Node<E> next) {
-        this.element = element;
-        this.next = next;
-    }
+        public Node(E element, Node<E> next) {
+            this.element = element;
+            this.next = next;
+        }
 
-    public E getElement() {
-        return element;
-    }
+        public E getElement() {
+            return element;
+        }
 
-    public Node<E> getNext() {
-        return next;
-    }
+        public Node<E> getNext() {
+            return next;
+        }
 
-    public void setElement(E newElement) {
-        this.element = newElement;
-    }
+        public void setElement(E newElement) {
+            this.element = newElement;
+        }
 
-    public void setNext(Node<E> newNext) {
-        this.next = newNext;
+        public void setNext(Node<E> newNext) {
+            this.next = newNext;
+        }
     }
 }
+
