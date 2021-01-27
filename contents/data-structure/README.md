@@ -54,6 +54,10 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ### Linked List 구현
 
+- [Singly Linked List](./code/LinkedList/SinglyLinkedList.java)
+- [Doubly Linked List](./code/LinkedList/DoublyLinkedList.java)
+- 위 코드 실행 : [LinkedListExample.java](./code/LinkedList/LinkedListExample.java)
+
 ### Linked List 시간 복잡도
 
 - 데이터 조회 : O(n)
@@ -313,6 +317,11 @@ class Trie {
 ---
 
 ## 질의응답
+
+<details>
+<summary>Array와 Linked List를 그 차이점을 이용해 설명해봅시다.</summary>
+
+</details>
 
 <details>
 <summary>스택으로 큐를 구현할 수 있을까요?</summary>
