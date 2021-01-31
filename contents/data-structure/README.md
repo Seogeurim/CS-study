@@ -54,10 +54,14 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ### Linked List 구현
 
+- [Singly Linked List](./code/LinkedList/SinglyLinkedList.java)
+- [Doubly Linked List](./code/LinkedList/DoublyLinkedList.java)
+- 위 코드 실행 : [LinkedListExample.java](./code/LinkedList/LinkedListExample.java)
+
 ### Linked List 시간 복잡도
 
 - 데이터 조회 : O(n)
-- **맨 앞/뒤에** 데이터 삽입/삭제하기 : O(1)
+- **맨 앞/뒤에** 데이터 삽입/삭제하기 : O(1) (SinglyLinkedList의 경우 맨 뒤의 데이터 삭제 연산은 O(n))
 - **중간의 원하는 위치에** 데이터 삽입/삭제하기 : O(n) _(원하는 원소까지 데이터를 조회하는 과정이 있으므로 O(n) + O(1))_
 
 ---
@@ -313,6 +317,25 @@ class Trie {
 ---
 
 ## 질의응답
+
+<details>
+<summary>Array와 Linked List를 그 차이점을 이용해 설명해봅시다.</summary>
+
+- 데이터 접근 속도
+  - Array는 인덱스를 통한 Random Access를 지원하므로 시간 복잡도 O(1)로 빠르게 찾을 수 있다.
+  - LinkedList는 순차 접근 방식을 사용하므로 시간 복잡도 O(N)이 걸린다.
+- 데이터의 삽입/삭제 속도
+  - Array는 데이터를 중간이나 맨 앞에 삽입/삭제하는 경우 shift가 필요하므로 데이터가 많을수록 비효율적이다.
+  - LinkedList는 중간 삽입/삭제는 똑같이 O(N)의 시간 복잡도를 갖지만, 맨 앞 또는 뒤에 삽입할 경우 O(1)의 시간복잡도를 갖는다.
+  - 다만 LinkedList는 데이터 삽입/삭제마다 메모리 할당/해제가 일어나므로 시간복잡도는 빠를지라도 시스템 콜(System Call)에 있어서 Array보다 더 시간이 걸린다.
+- 메모리 할당
+  - Array는 정적 메모리 할당이 이루어진다. (Compile time)
+  - LinkedList는 동적 메모리 할당이 이루어진다. (Runtime)
+  - Array의 경우 데이터 삽입 시 모든 공간이 다 차버렸다면 새로운 메모리 공간이 필요하지만 LinkedList는 동적으로 할당받을 수 있다.
+
+데이터 삽입/삭제가 빈번하다면 LinkedList를 사용하는 것이 좋고, 데이터 접근 속도가 중요하다면 Array를 사용하는 것이 좋다.
+
+</details>
 
 <details>
 <summary>스택으로 큐를 구현할 수 있을까요?</summary>

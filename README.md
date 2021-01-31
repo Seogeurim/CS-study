@@ -150,16 +150,21 @@
 ### [📖 정리노트](./contents/algorithm)
 
 - 시간복잡도와 공간복잡도
-  - Fibonacci에서의 세 가지(Recursion, Dynamic Programming, 반복) 방식에 대한 시간복잡도와 공간복잡도 차이
 - DFS와 BFS
-- Dynamic Programming
 - 정렬 알고리즘의 종류와 개념
+  - Insertion Sort (삽입정렬)
+  - Selection Sort (선택정렬)
+  - Bubble Sort (거품정렬)
+  - Merge Sort (합병정렬)
+  - Quick Sort (퀵정렬)
 - Greedy 알고리즘
-- 최소 신장 트리(MST, Minimum Spanning Tree)
+- Dynamic Programming
+- 최소 신장 트리 (MST, Minimum Spanning Tree)
   - Kruskal MST
   - Prim MST
 - 문자열 처리
   - KMP 알고리즘
+- 세그먼트 트리 (Segment Tree)
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
