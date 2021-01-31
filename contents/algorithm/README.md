@@ -1,6 +1,6 @@
 # Algorithm (알고리즘)
 
-> 작성자 : [권혁진](https://github.com/KimKwon), [장주섭](https://github.com/wntjq68), [정희재](https://github.com/Hee-Jae)
+> 작성자 : [권혁진](https://github.com/KimKwon), [장주섭](https://github.com/wntjq68), [정희재](https://github.com/Hee-Jae), [이세명](https://github.com/3people)
 
 <details>
 <summary>Table of Contents</summary>
@@ -8,6 +8,7 @@
 - [DFS와 BFS](#dfs와-bfs)
 - [정렬 알고리즘의 종류와 개념](#정렬-알고리즘의-종류와-개념)
 - [세그먼트 트리 (Segment Tree)](<#세그먼트-트리-(segment-tree)>)
+- [Heap, Radix, Counting sort](#정렬)
 
 </details>
 
@@ -337,6 +338,14 @@ void swap(int[] arr, int i, int j) {
 아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
 
 - 작성자 정희재 | [Segment Tree](./materials/세그먼트트리.pdf)
+
+---
+
+## 정렬
+
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+
+- 작성자 이세명 | [Heap, Radix, Counting Sort](./materials/이세명_algorithm_sorting.pdf)
 
 ## 질의응답
 
