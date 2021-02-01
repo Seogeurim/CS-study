@@ -379,6 +379,8 @@ void swap(int[] arr, int i, int j) {
 
 ![다익스트라](https://user-images.githubusercontent.com/22045163/106482569-eca38480-64f0-11eb-9c52-28a886a9f947.gif)
 
+다익스트라 알고리즘 구현 ▶️ [Dijkstra Test](./code/DijkstraTest.java)
+
 ### 벨만-포드 알고리즘 (Bellman-Ford-Moore Algorithm)
 
 그래프 G = (V, E) 에서 특정 출발 정점(S)에서 다른 모든 정점까지의 최단 경로를 구하는 알고리즘이다. 다익스트라 알고리즘과 달리, 음의 가중치를 가지는 간선도 가능하다.
