@@ -379,7 +379,7 @@ void swap(int[] arr, int i, int j) {
 
 ![다익스트라](https://user-images.githubusercontent.com/22045163/106482569-eca38480-64f0-11eb-9c52-28a886a9f947.gif)
 
-다익스트라 알고리즘 구현 ▶️ [Dijkstra Test](./code/DijkstraTest.java)
+다익스트라 알고리즘 구현 ▶️ [DijkstraTest.java](./code/DijkstraTest.java)
 
 ### 벨만-포드 알고리즘 (Bellman-Ford-Moore Algorithm)
 
@@ -396,7 +396,9 @@ void swap(int[] arr, int i, int j) {
 - 음의 사이클 존재 여부를 확인하기 위해서 한 번 더 (V번째) E개의 간선을 확인한다. 이 때 거리 배열이 갱신되었다면, 그래프 G는 음의 사이클을 가진다.
 - 따라서 총 V x E 번 연산하므로 **O(VE)** 의 시간복잡도를 가진다.
 
-![벨만포드](https://user-images.githubusercontent.com/22045163/106482770-270d2180-64f1-11eb-8bea-4f1557a9c7f0.gif)
+![벨만포드](https://user-images.githubusercontent.com/22045163/106553083-f6160680-655b-11eb-8da9-cda67af0493e.gif)
+
+벨만-포드 알고리즘 구현 ▶️ [BellmanFordTest.java](./code/BellmanFordTest.java)
 
 ### 플로이드-워셜 알고리즘 (Floyd-Warshall Algorithm)
 
