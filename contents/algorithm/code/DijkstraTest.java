@@ -1,22 +1,35 @@
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
 public class DijkstraTest {
 
-    public static void main(String[] args) {
-        Dijkstra d = new Dijkstra(7);
-        d.setGraph(1, 2, 7);
-        d.setGraph(1, 3, 5);
-        d.setGraph(1, 4, 3);
-        d.setGraph(3, 4, 3);
-        d.setGraph(3, 5, 3);
-        d.setGraph(4, 5, 9);
-        d.setGraph(4, 7, 7);
-        d.setGraph(5, 3, 2);
-        d.setGraph(5, 7, 1);
-        d.setGraph(6, 2, 3);
-        d.setGraph(6, 4, 1);
-        d.setGraph(6, 7, 7);
+    static int[][] weights = {
+            {1, 2, 7},
+            {1, 3, 5},
+            {1, 4, 3},
+            {3, 4, 3},
+            {3, 5, 3},
+            {4, 5, 9},
+            {4, 7, 7},
+            {5, 3, 2},
+            {5, 7, 1},
+            {6, 2, 3},
+            {6, 4, 1},
+            {6, 7, 7}
+    };
 
+    public static void main(String[] args) {
+        /* Simple Dijkstra */
+        Dijkstra d = new Dijkstra(7);
+        for (int[] w : weights) d.setGraph(w[0], w[1], w[2]);
 //        d.printGraph();
         d.getShortestDistance(1);
+
+        /* Improved Dijkstra */
+        ImprovedDijkstra d2 = new ImprovedDijkstra(7);
+        for (int[] w : weights) d2.setGraph(w[0], w[1], w[2]);
+//        d2.printGraph();
+        d2.getShortestDistance(1);
     }
 }
 
@@ -92,5 +105,72 @@ class Dijkstra {
             else System.out.print(D[i] + " ");
         }
         System.out.println();
+    }
+}
+
+class ImprovedDijkstra {
+    private int N;
+    private ArrayList<Node>[] graph;
+
+    private final static int INF = Integer.MAX_VALUE;
+    private int[] D;
+
+    public ImprovedDijkstra(int N) {
+        this.N = N;
+        graph = new ArrayList[N+1];
+        for (int i = 1; i <= N; i++) graph[i] = new ArrayList<>();
+        D = new int[N+1];
+        for (int i = 1; i <= N; i++) D[i] = INF;
+    }
+
+    public void setGraph(int i, int j, int w) {
+        graph[i].add(new Node(j, w));
+    }
+
+    public void printGraph() {
+        for (int i = 1; i <= N; i++) {
+            for (Node n : graph[i]) {
+                System.out.println(i + " --" + n.distance + "--> " + n.index);
+            }
+        }
+    }
+
+    public void getShortestDistance(int S) {
+        PriorityQueue<Node> pq = new PriorityQueue<>(((o1, o2) -> o1.distance - o2.distance));
+
+        D[S] = 0;
+        pq.offer(new Node(S, 0));
+
+        while (!pq.isEmpty()) {
+            Node current = pq.poll();
+            if (current.distance > D[current.index]) continue;
+
+            for (Node next : graph[current.index]) {
+                if (D[next.index] > D[current.index] + next.distance) {
+                    D[next.index] = D[current.index] + next.distance;
+                    pq.offer(new Node(next.index, D[next.index]));
+                }
+            }
+        }
+
+        printDistance();
+    }
+
+    private void printDistance() {
+        for (int i = 1; i <= N; i++) {
+            if (D[i] == INF) System.out.print("∞ ");
+            else System.out.print(D[i] + " ");
+        }
+        System.out.println();
+    }
+
+    static class Node {
+        int index;
+        int distance;
+
+        public Node(int index, int distance) {
+            this.index = index;
+            this.distance = distance;
+        }
     }
 }
