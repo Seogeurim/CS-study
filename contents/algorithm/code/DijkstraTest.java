@@ -156,6 +156,31 @@ class ImprovedDijkstra {
         printDistance();
     }
 
+    public void getShortestDistance2(int S) { // INF = -1 로 초기화했을 때
+        /* @Hee-Jae
+            - D 배열을 INF 대신 -1 로 초기화시킨다.
+            - 한 번도 방문하지 않은 노드에 대해서만 D 배열을 갱신하고 우선순위 큐에 넣어가며 탐색한다.
+            (우선순위 큐의 특성상 최저 비용으로 갈 수 있는 노드가 계속 큐의 제일 앞에 있기 때문에 '이 노드를 방문했는가?' 라는 조건만 판단해 준다면 Distance를 비교하지 않고도 최단경로를 구할 수 있다.)
+            - INF 값을 설정해주지 않아도 되기 때문에 Distance가 INF를 넘어가게 되는 경우를 생각하지 않아도 된다는 장점이 있다.
+        */
+        PriorityQueue<Node> pq = new PriorityQueue<>(((o1, o2) -> o1.distance - o2.distance));
+
+        pq.offer(new Node(S, 0));
+        while (!pq.isEmpty()) {
+            Node current = pq.poll();
+            if (D[current.index] != -1) continue;
+
+            D[current.index] = current.distance;
+            for (Node next : graph[current.index]) {
+                if (D[next.index] == -1) {
+                    pq.offer(new Node(next.index, D[current.index] + next.distance));
+                }
+            }
+        }
+
+        printDistance();
+    }
+
     private void printDistance() {
         for (int i = 1; i <= N; i++) {
             if (D[i] == INF) System.out.print("∞ ");
