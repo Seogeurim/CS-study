@@ -157,6 +157,14 @@
   - Bubble Sort (거품정렬)
   - Merge Sort (합병정렬)
   - Quick Sort (퀵정렬)
+  - Heap Sort
+  - Radix Sort
+  - Counting Sort
+- 세그먼트 트리 (Segment Tree)
+- 최단 경로 알고리즘
+  - 다익스트라
+  - 벨만-포드
+  - 플로이드-워셜
 - Greedy 알고리즘
 - Dynamic Programming
 - 최소 신장 트리 (MST, Minimum Spanning Tree)
@@ -164,7 +172,6 @@
   - Prim MST
 - 문자열 처리
   - KMP 알고리즘
-- 세그먼트 트리 (Segment Tree)
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
