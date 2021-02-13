@@ -475,7 +475,7 @@ void swap(int[] arr, int i, int j) {
 
 아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
 
-- 작성자 권혁진 | [최장증가부분수열 LIS](./materials/최장증가수열(LIS).pdf)
+- 작성자 권혁진 | [최장증가부분수열 LIS](./materials/최장증가수열.pdf)
 
 LIS 완전탐색 알고리즘 구현 ▶️ [lis_brute.cpp](./code/lis_brute.cpp)
 
