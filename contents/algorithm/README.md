@@ -471,11 +471,15 @@ void swap(int[] arr, int i, int j) {
 
 ---
 
-## 최장 증가 부분수열 알고리즘 (Longest Increasing Subsequence)
+## 최장 증가 부분수열 알고리즘
 
 아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
 
 - 작성자 권혁진 | [LIS](<./materials/최장증가수열(LIS).pdf>)
+
+LIS 완전탐색 알고리즘 구현 ▶️ [lis_brute.cpp](./code/lis_brute.cpp)
+LIS 동적계획법 알고리즘 구현 ▶️ [lis_dp.cpp](./code/lis_dp.cpp)
+LIS 이분탐색 알고리즘 구현 ▶️ [lis_bs.cpp](./code/lis_bs.cpp)
 
 ---
 
