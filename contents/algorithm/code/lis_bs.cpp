@@ -11,9 +11,10 @@ int bs(int low,int high,int key){
 }
 
 int main(){
-  int n,idx=0;
+  int n,idx=1;
   cin >> n;
   for(int i=0;i<n;i++) scanf("%d",&arr[i]);
+  ans[0] = arr[0];
   for(int i=0;i<n;i++){
       if(arr[i]>ans[idx-1]){
           ans[idx++] = arr[i];
