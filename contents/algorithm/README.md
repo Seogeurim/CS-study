@@ -13,23 +13,11 @@
 
 ## 알고리즘 응용
 
-- [정렬 알고리즘](sort.md)
-  - Insertion Sort (삽입정렬)
-  - Selection Sort (선택정렬)
-  - Bubble Sort (거품정렬)
-  - Merge Sort (합병정렬)
-  - Quick Sort (퀵정렬)
-  - Heap Sort
-  - Radix Sort
-  - Counting Sort
-- 문자열 처리 알고리즘
-- [두 포인터 (two-pointer)](two-pointer.md)
+- [정렬 알고리즘](sort.md) (Insertion / Selection / Bubble / Merge / Quick / Heap / Radix / Counting Sort)
 - [그래프](graph.md)
-  - [최단 경로 알고리즘](graph.md#최단-경로-알고리즘)
-    - 다익스트라
-    - 벨만-포드
-    - 플로이드-워셜
-  - 최소 신장 트리 (MST, Minimum Spanning Tree)
+  - [최단 경로 알고리즘](graph.md#최단-경로-알고리즘) (다익스트라, 벨만-포드, 플로이드-워셜)
+- [두 포인터 (two-pointer)](two-pointer.md)
+- 문자열 처리 알고리즘
 
 ---
 
