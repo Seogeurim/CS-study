@@ -6,7 +6,7 @@
 <summary>Table of Contents</summary>
 
 - [Deque (덱)](#deque-덱)
-- [세그먼트 트리 (Indexed Tree / Segment Tree)](#세그먼트-트리-indexed-tree-segment-tree)
+- [세그먼트 트리 (Indexed Tree / Segment Tree)](#세그먼트-트리-indexed-tree--segment-tree)
 - [Trie (트라이)](#trie-트라이)
 
 </details>

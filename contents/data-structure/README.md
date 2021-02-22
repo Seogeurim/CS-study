@@ -14,7 +14,7 @@
 
 - [Deque](advanced.md#deque-덱)
 - Heap & Priority Queue
-- [Indexed Tree (Segment Tree)](advanced.md#세그먼트-트리-indexed-tree-segment-tree)
+- [Indexed Tree (Segment Tree)](advanced.md#세그먼트-트리-indexed-tree--segment-tree)
 - [Trie](advanced.md#trie-트라이)
 
 ---
