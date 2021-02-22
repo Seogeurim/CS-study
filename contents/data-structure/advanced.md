@@ -1,11 +1,12 @@
 # 응용 자료 구조
 
-> 작성자 : [서그림](https://github.com/Seogeurim)
+> 작성자 : [서그림](https://github.com/Seogeurim), [정희재](https://github.com/Hee-Jae)
 
 <details>
 <summary>Table of Contents</summary>
 
 - [Deque (덱)](#deque-덱)
+- [세그먼트 트리 (Indexed Tree / Segment Tree)](#세그먼트-트리-indexed-tree-segment-tree)
 - [Trie (트라이)](#trie-트라이)
 
 </details>
@@ -28,6 +29,14 @@
 ### Deque 시간 복잡도 & 공간 복잡도
 
 ### Deque 활용
+
+---
+
+## 세그먼트 트리 (Indexed Tree / Segment Tree)
+
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+
+- 작성자 정희재 | [Segment Tree](./materials/세그먼트트리.pdf)
 
 ---
 
