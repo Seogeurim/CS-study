@@ -1,21 +1,21 @@
 # Data Structure (자료구조)
 
-## [기본 자료 구조](basic.md)
+## 기본 자료 구조 [▶︎ 🗒](basic.md)
 
-- Array
-- Linked List
-- Stack
-- Queue
-- Tree
-- Binary Tree
-- Graph
+- [Array](basic.md#array-배열)
+- [Linked List](basic.md#linked-list-연결-리스트)
+- [Stack](basic.md#stack-스택)
+- [Queue](basic.md#queue-큐)
+- [Tree](basic.md#tree-트리)
+- [Binary Tree](basic.md#binary-tree-이진-트리)
+- [Graph](basic.md#graph-그래프)
 
-## [응용 자료 구조](advanced.md)
+## 응용 자료 구조 [▶︎ 🗒](advanced.md)
 
-- Deque
+- [Deque](advanced.md#deque-덱)
 - Heap & Priority Queue
 - Indexed Tree (Segment Tree)
-- Trie
+- [Trie](advanced.md#trie-트라이)
 
 ---
 

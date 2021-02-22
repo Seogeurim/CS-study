@@ -2,6 +2,14 @@
 
 > 작성자 : [서그림](https://github.com/Seogeurim)
 
+<details>
+<summary>Table of Contents</summary>
+
+- [Deque (덱)](#deque-덱)
+- [Trie (트라이)](#trie-트라이)
+
+</details>
+
 ---
 
 ## Deque (덱)

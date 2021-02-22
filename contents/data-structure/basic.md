@@ -10,13 +10,13 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [Array (배열)](#array-(배열))
-- [Linked List (연결 리스트)](#linked-list-(연결-리스트))
-- [Stack (스택)](#stack-(스택))
-- [Queue (큐)](#queue-(큐))
-- [Tree (트리)](#tree-(트리))
-- [Binary Tree (이진 트리)](#binary-tree-(이진-트리))
-- [Graph (그래프)](#graph-(그래프))
+- [Array (배열)](#array-배열)
+- [Linked List (연결 리스트)](#linked-list-연결-리스트)
+- [Stack (스택)](#stack-스택)
+- [Queue (큐)](#queue-큐)
+- [Tree (트리)](#tree-트리)
+- [Binary Tree (이진 트리)](#binary-tree-이진-트리)
+- [Graph (그래프)](#graph-그래프)
 
 </details>
 
