@@ -1,3 +1,5 @@
+package Trie;
+
 public class TrieExample {
 
     public static void main(String[] args) {
