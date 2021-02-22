@@ -123,7 +123,7 @@ class Trie {
 }
 ```
 
-예제 코드 바로 가기 ▶️ [TrieExample.java](./code/TrieExample.java)
+예제 코드 바로 가기 ▶️ [TrieExample.java](./code/Trie/TrieExample.java)
 
 ### Trie 시간 복잡도
 
