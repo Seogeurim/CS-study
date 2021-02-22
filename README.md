@@ -6,11 +6,11 @@
 
 - [About](#About)
 - [Data Structure](#data-structure-자료구조)
+- [Algorithm](#algorithm-알고리즘)
 - [Operating System](#operating-system-운영체제)
 - [Database](#database-데이터베이스)
 - [Network](#network-네트워크)
 - [Design Pattern](#design-pattern-디자인-패턴)
-- [Algorithm](#algorithm-알고리즘)
 - [Language](#Language)
 
 ## About
@@ -31,8 +31,8 @@
 <a href="https://github.com/Seogeurim">
   <img src="https://github.com/Seogeurim.png" width="100">
 </a>
-<a href="https://github.com/yungoingFLY">
-  <img src="https://github.com/yungoingFLY.png" width="100">
+<a href="https://github.com/yoongoing">
+  <img src="https://github.com/yoongoing.png" width="100">
 </a>
 <a href="https://github.com/3people">
   <img src="https://github.com/3people.png" width="100">
@@ -55,19 +55,47 @@
 
 ### [📖 정리노트](./contents/data-structure)
 
+#### 기본 자료 구조
+
 - Array
 - Linked List
 - Stack
 - Queue
-- Deque
 - Tree
 - Binary Tree
-  - Heap, Priority Queue
-  - Indexed Tree
+  
+#### 응용 자료 구조
+
+- Deque
+- Heap & Priority Queue
+- Indexed Tree (Segment Tree)
 - Trie
-- Hash Table
-- Set
-- Map
+
+[🔝 목차로 돌아가기](#table-of-contents)
+
+## Algorithm (알고리즘)
+
+### [📖 정리노트](./contents/algorithm)
+
+#### 알고리즘 기본
+
+- 시간복잡도와 공간복잡도
+- 완전 탐색 알고리즘 (Brute Force)
+  - DFS와 BFS
+  - 순열, 조합, 부분집합
+- 백트래킹 (Backtracking)
+- 분할 정복법 (Divide and Conquer)
+- 탐욕 알고리즘 (Greedy)
+- 동적 계획법 (Dynamic Programming)
+
+#### 알고리즘 응용
+
+- 정렬 알고리즘
+- 문자열 처리 알고리즘
+- 두 포인터 (two-pointer)
+- 그래프
+  - 최단 경로 알고리즘
+  - 최소 신장 트리 (MST, Minimum Spanning Tree)
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
@@ -138,40 +166,6 @@
 
 - 디자인 패턴의 개념과 종류
 - Singleton 패턴
-- Strategy 패턴
-- Template Method 패턴
-- Factory Method 패턴
-- MVC1 패턴과 MVC2 패턴
-
-[🔝 목차로 돌아가기](#table-of-contents)
-
-## Algorithm (알고리즘)
-
-### [📖 정리노트](./contents/algorithm)
-
-- 시간복잡도와 공간복잡도
-- DFS와 BFS
-- 정렬 알고리즘의 종류와 개념
-  - Insertion Sort (삽입정렬)
-  - Selection Sort (선택정렬)
-  - Bubble Sort (거품정렬)
-  - Merge Sort (합병정렬)
-  - Quick Sort (퀵정렬)
-  - Heap Sort
-  - Radix Sort
-  - Counting Sort
-- 세그먼트 트리 (Segment Tree)
-- 최단 경로 알고리즘
-  - 다익스트라
-  - 벨만-포드
-  - 플로이드-워셜
-- Greedy 알고리즘
-- Dynamic Programming
-- 최소 신장 트리 (MST, Minimum Spanning Tree)
-  - Kruskal MST
-  - Prim MST
-- 문자열 처리
-  - KMP 알고리즘
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
