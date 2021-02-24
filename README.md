@@ -94,6 +94,7 @@
 - 정렬 알고리즘
 - 그래프
   - 최단 경로 알고리즘
+  - Union Find & Kruskal
 - 두 포인터 (two-pointer)
 - 문자열 처리 알고리즘
 

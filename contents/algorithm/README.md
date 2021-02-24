@@ -16,9 +16,10 @@
 - [정렬 알고리즘](sort.md) (Insertion / Selection / Bubble / Merge / Quick / Heap / Radix / Counting Sort)
 - [그래프](graph.md)
   - [최단 경로 알고리즘](graph.md#최단-경로-알고리즘) (다익스트라, 벨만-포드, 플로이드-워셜)
+  - [분리 집합(Union Find)과 크루스칼(Kruskal) 알고리즘](graph.md#분리-집합Union-Find과-크루스칼Kruskal-알고리즘)
 - [두 포인터 (two-pointer)](two-pointer.md)
 - 문자열 처리 알고리즘
-- [분리 집합 (Union Find)](./materials/유니온파인드.pdf) 
+
 ---
 
 ## 질의응답
