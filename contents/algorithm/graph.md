@@ -1,6 +1,6 @@
 # 그래프 관련 알고리즘
 
-> 작성자 : [서그림](https://github.com/Seogeurim)
+> 작성자 : [서그림](https://github.com/Seogeurim), [정희재](https://github.com/Hee-Jae)
 
 <details>
 <summary>Table of Contents</summary>
@@ -8,6 +8,7 @@
 - [다익스트라 알고리즘 (Dijkstra Algorithm)](#다익스트라-알고리즘-dijkstra-algorithm)
 - [벨만-포드 알고리즘 (Bellman-Ford-Moore Algorithm)](#벨만-포드-알고리즘-bellman-ford-moore-algorithm)
 - [플로이드-워셜 알고리즘 (Floyd-Warshall Algorithm)](#플로이드-워셜-알고리즘-floyd-warshall-algorithm)
+- [분리 집합(Union Find)과 크루스칼(Kruskal) 알고리즘](#분리-집합Union-Find과-크루스칼Kruskal-알고리즘)
 
 </details>
 
@@ -133,3 +134,11 @@
 - 사이클이 없다면 음수 가중치를 가져도 적용 가능하다.
 - 동적 계획법(Dynamic Programming)으로 접근한다.
 - 모든 가능한 경유지에 대해서 모든 정점 -> 모든 정점으로 가는 최단 거리를 확인하므로 연산 횟수는 V^3이고, 따라서 시간복잡도는 **O(V^3)** 이다.
+
+---
+
+# 분리 집합(Union Find)과 크루스칼(Kruskal) 알고리즘
+
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+
+- 작성자 정희재 | [Union Find & Kruskal Algorithm](./materials/유니온파인드.pdf)
