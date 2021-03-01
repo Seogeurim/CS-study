@@ -106,6 +106,9 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ### Stack 시간 복잡도 & 공간 복잡도
 
+- 데이터 삽입/삭제 : O(1)
+- 데이터 조회 : O(n)
+
 ### Stack 활용
 
 - 시스템 스택(System Stack) / 실행시간 스택(Runtime stack) : 프로그램의 함수 호출과 복귀에 따른 실행 순서 관리
@@ -137,21 +140,30 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 - `Front` / `Head` : 큐에서 데이터가 삭제될 위치
 - `Rear` / `Tail` : 큐에서 마지막 데이터가 삽입된 위치
 
-### Queue 주요 명령어
+### Queue 주요 연산
+
+- `enQueue` : 큐의 rear에 원소 삽입
+- `deQueue` : 큐의 front에 있는 원소 삭제
 
 ### Queue 구현
 
+- [Queue](./code/Queue/)
+
 ### Queue 시간 복잡도 & 공간 복잡도
+
+- 데이터 삽입/삭제 : O(1)
+- 데이터 조회 : O(n)
 
 ### Queue 활용
 
 - 프로세스 레디 큐
 - 스케쥴링
-- 네트워크 패킷 전송시 필요한 버퍼 대기 큐
 - 캐시(Cache) 구현
+- 네트워크 패킷 전송시 필요한 버퍼 대기 큐
 - javascript의 Event Loop 관리 (비동기 처리)
-- 너비 우선 탐색(BFS, Breadth-First Search)
+- 키보드 버퍼
 - 프린터의 출력 처리
+- 너비 우선 탐색(BFS, Breadth-First Search)
 
 ---
 
