@@ -154,6 +154,9 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 - [Singly Linked List를 통해 구현한 Queue](./code/Queue/LinkedQueue.java)
 - 위 코드 실행 : [QueueExample.java](./code/Queue/QueueExample.java)
 
+> Java에서 API로 Queue를 사용할 때, java.util.Queue는 인터페이스이며, 그 구현체로 java.util.LinkedList를 사용한다. 
+> 따라서 `Queue<String> queue = new LinkedList<String>()`로 선언해야 한다.
+
 ### Queue 시간 복잡도 & 공간 복잡도
 
 - 데이터 삽입/삭제 : O(1)
