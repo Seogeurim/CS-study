@@ -150,12 +150,15 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ### Queue 구현
 
-- [Queue](./code/Queue/)
+- [Array를 통해 구현한 Queue](./code/Queue/ArrayQueue.java)
+- [Singly Linked List를 통해 구현한 Queue](./code/Queue/LinkedQueue.java)
+- 위 코드 실행 : [QueueExample.java](./code/Queue/QueueExample.java)
 
 ### Queue 시간 복잡도 & 공간 복잡도
 
 - 데이터 삽입/삭제 : O(1)
-- 데이터 조회 : O(n)
+- front 데이터 조회 : O(1)
+- 특정 데이터 조회 : O(n)
 
 ### Queue 활용
 
