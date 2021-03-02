@@ -153,8 +153,8 @@
 
 - OSI 7 계층
 - GET, POST 방식의 차이점
-- TCP 3-way-handshake
-- [TCP 와 UDP](https://nukw0n-dev.tistory.com/10)
+- TCP 3-way-handshake & 4-way-handshake
+- TCP 와 UDP
 - HTTP 와 HTTPS
 - DNS round robin 방식
 - 웹 통신의 큰 흐름
