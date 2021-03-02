@@ -32,7 +32,10 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public E pop() {
         if (isEmpty()) return null;
-        return data[top--];
+        E target = data[top];
+        data[top] = null; // dereference to help garbage collection
+        top--;
+        return target;
     }
 
     @Override
