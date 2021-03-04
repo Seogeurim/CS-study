@@ -87,6 +87,59 @@ OSI 7 계층은 **물리 계층, 데이터 링크 계층, 네트워크 계층, �
 
 ## TCP 3-way-handshake & 4-way-handshake
 
+> 참고 : [[Network] TCP 3-way handshaking과 4-way handshaking](https://gmlwjd9405.github.io/2018/09/19/tcp-connection.html)
+
+TCP는 네트워크 계층 중 **전송 계층에서 사용하는 프로토콜** 중 하나로, 장치들 사이에 논리적인 접속을 성립(establish)하기 위하여 연결을 설정하여 **신뢰성을 보장하는 연결형 서비스**이다.
+
+TCP의 **3-way-handshake**란 TCP 통신을 이용하여 데이터를 전송하기 위해 네트워크 **연결을 설정 (Connection Establish)** 하는 과정이며, **4-way-handshake**는 TCP **연결을 해제 (Connection Termination)** 하는 과정이다.
+
+### TCP 3-way-handshake : Connection Establish
+
+양쪽 모두 데이터를 전송할 준비가 되었다는 것을 보장하고, 실제로 데이터 전달을 시작하기 전에 한쪽이 다른쪽이 준비되었다는 것을 알 수 있도록 하는 과정이다. 즉, TCP/IP 프로토콜을 이용해서 통신을 하는 응용 프로그램이 데이터를 전송하기 전에, 먼저 정확한 전송을 보장하기 위해 상대방 컴퓨터와 사전에 세션을 수립하는 과정을 의미한다.
+
+![image](img/3-way-handshake.png)
+
+#### A 프로세스(Client)가 B 프로세스(Server)에 연결을 요청
+
+1. A → B : SYN(a)
+    - PORT 상태 - A: CLOSED, B: LISTEN
+    - 프로세스 A가 연결 요청 메시지 전송 (SYN)
+    - 송신자가 최초로 데이터를 전송할 때 Sequence Number를 임의의 랜덤 숫자로 지정하고, SYN 플래그 비트를 1로 설정한 세그먼트를 전송
+2. B → A : ACK(a+1), SYN(b)
+    - PORT 상태 - A: CLOSED, B: SYN_RCV
+    - 접속 요청을 받은 프로세스 B가 요청을 수락했으며, 접속 요청 프로세스인 A도 포트를 열어달라는 메시지 전송 (ACK + SYN)
+    - 수신자는 Acknowledgement Number 필드를 (Sequence Number + 1)로 지정하고, SYN과 ACK 플래그 비트를 1로 설정한 세그먼트를 전송
+3. A → B : ACK(b+1)
+    - PORT 상태 - A: ESTABLISHED, B: SYN_RCV
+    - 마지막으로 접속 요청 프로세스 A가 수락 확인을 보내 연결을 맺음 (ACK)
+    - 이 때, 전송할 데이터가 있으면 이 단계에서 데이터를 전송할 수 있음
+    - 최종 PORT 상태 - A: ESTABLISHED, B: ESTABLISHED (성립)
+
+### TCP 4-way-handshake : Connection Termination
+
+![image](img/4-way-handshake.png)
+
+#### A 프로세스(Client)가 B 프로세스(Server)에 연결 해제를 요청
+
+1. A → B : FIN
+    - PORT 상태 - A: ESTABLISHED, B: ESTABLISHED
+    - 프로세스 A가 연결을 종료하겠다는 FIN 플래그를 전송
+    - 프로세스 B가 FIN 플래그로 응답하기 전까지 연결을 계속 유지
+2. B → A : ACK
+    - PORT 상태 - A: FIN_WAIT_1, B: CLOSE_WAIT
+    - 프로세스 B는 일단 확인 메시지를 보내고 자신의 통신이 끝날 때까지 기다림 (TIME_WAIT)
+    - 수신자는 Acknowledgement Number 필드를 (Sequence Number + 1)로 지정하고, ACK 플래그 비트를 1로 설정한 세그먼트를 전송
+    - 그리고 자신이 전송할 데이터가 남아있다면 이어서 계속 전송
+3. B → A : FIN
+    - PORT 상태 - A: FIN_WAIT_2, B: CLOSE_WAIT
+    - 프로세스 B가 통신이 끝났으면 연결 종료 요청에 합의한다는 의미로 프로세스 A에게 FIN 플래그를 전송
+4. A → B : ACK
+    - 클라이언트는 아직 서버로부터 받지 못한 데이터가 있을 것을 대비해 일정 시간 동안 세션을 남겨놓고 잉여 패킷을 기다리는 과정을 거침 (TIME_WAIT)
+    - PORT 상태 - A: TIME_WAIT, B: LAST_ACK
+    - 프로세스 A는 FIN 메시지를 확인했다는 메시지를 전송 (ACK)
+    - 프로세스 A로부터 ACK 메시지를 받은 프로세스 B는 소켓 연결을 CLOSE
+    - 최종 PORT 상태 - A: CLOSED, B: CLOSED (해제)
+    
 ---
 
 ## TCP 와 UDP
