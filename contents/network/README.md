@@ -2,6 +2,18 @@
 
 > 작성자 : [권혁진](https://github.com/KimKwon), [서그림](https://github.com/Seogeurim), [윤가영](https://github.com/yoongoing)
 
+<details>
+<summary>Table of Contents</summary>
+
+- [OSI 7 계층](#osi-7-계층)
+- [TCP 3-way-handshake & 4-way-handshake](#tcp-3-way-handshake--4-way-handshake)
+- [TCP 와 UDP](#tcp-와-udp)
+- [HTTP 요청 방식 - GET, POST](#http-요청-방식---get-post)
+- [HTTP 와 HTTPS](#http-와-https)
+- [DNS round robin 방식과 웹 통신의 흐름](#dns-round-robin-방식과-웹-통신의-흐름)
+
+</details>
+
 ---
 
 ## OSI 7 계층
@@ -73,6 +85,18 @@ OSI 7 계층은 **물리 계층, 데이터 링크 계층, 네트워크 계층, �
 
 ---
 
+## TCP 3-way-handshake & 4-way-handshake
+
+---
+
+## TCP 와 UDP
+
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+
+- 작성자 권혁진 | [TCP 와 UDP](https://nukw0n-dev.tistory.com/10)
+
+---
+
 ## HTTP 요청 방식 - GET, POST
 
 HTTP의 GET, POST 메서드란 HTTP 프로토콜을 이용해서 서버에 데이터(요청 정보)를 전달할 때 사용하는 방식이다.
@@ -81,7 +105,7 @@ HTTP의 GET, POST 메서드란 HTTP 프로토콜을 이용해서 서버에 데�
 
 GET 메서드는 **정보를 조회**하기 위한 메서드로, 서버에서 어떤 데이터를 가져와서 보여주기 위한 용도의 메서드이다. **"가져오는 것(Select)"**
 
-GET 방식은 요청하는 데이터가 HTTP Request Message의 Header 부분의 url에 담겨서 전송된다. 이는 요청 정보를 url 상에 넣어야 한다는 뜻이다. 요청 정보를 url에 넣는 방법은 요청하려는 url의 끝에 `?`를 붙이고, `(key=value)` 형태로 요청 정보를 담으면 된다. 요청 정보가 여러 개일 경우에는 `&`로 구분한다. 
+GET 방식은 요청하는 데이터가 HTTP Request Message의 Header 부분의 url에 담겨서 전송된다. 이는 요청 정보를 url 상에 넣어야 한다는 뜻이다. 요청 정보를 url에 넣는 방법은 요청하려는 url의 끝에 `?`를 붙이고, `(key=value)` 형태로 요청 정보를 담으면 된다. 요청 정보가 여러 개일 경우에는 `&`로 구분한다.
 
 > ex. `www.urladdress.xyz?name1=value1&name2=value2`
 
@@ -109,18 +133,14 @@ POST 방식은 다음과 같은 특징이 있다.
 - 클라이언트 쪽에서 데이터를 인코딩하여 서버로 전송하고, 이를 받은 서버 쪽이 해당 데이터를 디코딩한다.
 
 > **목적에 맞는 기술을 사용해야 한다. - GET 방식의 캐싱과 연관지어 생각해보기**
-> 
+>
 > GET 방식의 요청은 브라우저에서 캐싱을 할 수 있다고 했다. 때문에 POST 방식으로 요청해야 할 것을, 요청 데이터의 크기가 작고 보안적인 문제가 없다는 이유로 GET 방식으로 요청한다면 기존에 캐싱되었던 데이터가 응답될 가능성이 존재한다. 때문에 목적에 맞는 기술을 사용해야 한다.
 
-## TCP 3-way-handshake & 4-way-handshake
-
-## TCP 와 UDP
-
-아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
-
-- 작성자 권혁진 | [TCP 와 UDP](https://nukw0n-dev.tistory.com/10)
+---
 
 ## HTTP 와 HTTPS
+
+---
 
 ## DNS round robin 방식과 웹 통신의 흐름
 
