@@ -97,7 +97,7 @@ TCP의 **3-way-handshake**란 TCP 통신을 시작하기 전에 논리적인 경
 
 3-way-handshake 과정을 통해 양쪽 모두 데이터를 전송할 준비가 되었다는 것을 보장한다.
 
-![image](img/3-way-handshake.png)
+<img src="img/3-way-handshake.png" alt="3-way-handshake" width="80%" />
 
 #### A 프로세스(Client)가 B 프로세스(Server)에 연결을 요청
 
@@ -115,7 +115,7 @@ TCP의 **3-way-handshake**란 TCP 통신을 시작하기 전에 논리적인 경
 
 ### TCP 4-way-handshake : Connection Termination
 
-![image](img/4-way-handshake.png)
+<img src="img/4-way-handshake.png" alt="4-way-handshake" width="77%" />
 
 #### A 프로세스(Client)가 B 프로세스(Server)에 연결 해제를 요청
 
