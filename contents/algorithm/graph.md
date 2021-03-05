@@ -139,6 +139,59 @@
 
 # 분리 집합(Union Find)과 크루스칼(Kruskal) 알고리즘
 
-아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+> 스터디 자료 - 작성자 정희재 | [Union Find & Kruskal Algorithm](./materials/유니온파인드.pdf)
 
-- 작성자 정희재 | [Union Find & Kruskal Algorithm](./materials/유니온파인드.pdf)
+## 서로소 집합(Disjoint Set)과 Union-Find
+
+서로소 집합(Disjoint Set)은 교집합이 없는, 즉 공통되는 원소가 없는 집합을 말한다. Union-Find는 서로소 집합을 표현할 때 사용되는 알고리즘으로, 서로소 집합의 정보를 확인(Find)하고 조작(Union)한다. Union Find 알고리즘을 이용하면 **서로 다른 두 노드가 같은 집합 내에 속해 있는지 확인**할 수 있다.
+
+### Union Find 구현
+
+#### 초기화 (initialize)
+
+root 배열에 i 원소의 부모 노드 번호를 저장한다. i 원소가 루트 노드라면, 자기 자신의 번호를 저장한다.
+
+```java
+void initialize() {
+    for (int i = 1; i <= N; i++) {
+        root[i] = i;
+    }
+}
+```
+
+#### n번 노드의 root 노드 번호 찾기 (find)
+
+```java
+int find(int n) {
+    if (root[n] == n) return n;
+    return find(root[n]);
+}
+```
+
+#### a 노드와 b 노드를 같은 집합으로 묶기 (merge, union)
+
+```java
+void merge(int a, int b) {
+    root[find(b)] = find(a);
+}
+```
+
+## Union Find를 활용한 MST 찾기 - Kruskal Algorithm
+
+무향 그래프 G가 순환이 없는 연결 그래프이면 그래프 G는 트리(Tree)이다.
+
+신장 트리 (Spanning Tree)란 무향 연결 그래프 G의 부분 그래프이며, G의 모든 정점을 포함하는 트리(Tree)인 그래프이다.
+
+여기서 최소 신장 트리 (Minimum Spanning Tree, MST)란 무향 연결 그래프 G에서 간선의 가중치의 합이 최소인 신장 트리이다. 이 최소 신장 트리 MST를 구할 수 있는 알고리즘으로는 크루스칼 알고리즘, 프림 알고리즘이 있다. 그 중 프림 알고리즘은 크루스칼 알고리즘에 비해 느리고 잘 안 쓰이므로 크루스칼 알고리즘에 대해 알아보겠다. 크루스칼 알고리즘은 Union-Find를 사용해 구현할 수 있다.
+
+### Kruskal Algorithm 구현
+
+1. (Cost, A, B) 리스트를 만들어서 모든 간선들의 정보를 Priority Queue에 저장한다. (최소 힙)
+2. Priority Queue에서 하나씩 pop하면서 **만약 A와 B가 연결되어 있지 않다면 A와 B를 연결**하고 전체 비용에 Cost를 더한다.
+3. **만일 A와 B가 연결되어 있다면** 무시한다.
+
+굵은 글씨 부분을 Union-Find로 구현한다.
+
+> 시간 복잡도 (E: 간선의 개수) : ![formula](https://render.githubusercontent.com/render/math?math=O(Elog_2E))
+
+Kruskal 알고리즘 구현 ▶️ [KruskalTest.java](./code/KruskalTest.java)
