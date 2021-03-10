@@ -64,7 +64,7 @@
 - Tree
 - Binary Tree
 - Graph
-  
+
 #### 응용 자료 구조
 
 - Deque
@@ -104,27 +104,14 @@
 
 ### [📖 정리노트](./contents/operating-system)
 
-- 프로세스와 스레드의 차이
+- 프로세스와 스레드
 - 스케줄러
 - CPU 스케줄러
-  - FCFS
-  - SJF
-  - SRT
-  - Priority scheduling
-  - RR
 - 동기와 비동기의 차이
-- 멀티스레드
 - 프로세스 동기화
-  - Critical Section
 - 메모리 관리 전략
-  - Paging
-  - Segmentation
 - 가상 메모리
-  - Demand Paging (요구 페이징)
-  - 페이지 교체 알고리즘
-- [캐시](https://nukw0n-dev.tistory.com/9?category=877997)
-  - Locality
-  - Caching line
+- 캐시
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
@@ -133,17 +120,10 @@
 ### [📖 정리노트](./contents/database)
 
 - 데이터베이스
-- 데이터베이스 성능
-  - Index
+- Index
 - 정규화
 - Transaction
-- Statement vs PreparedStatement
 - NoSQL
-  - CAP 이론
-  - 저장방식에 따른 분류
-    - Key-Value Model
-    - Document Model
-    - Column Model
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
