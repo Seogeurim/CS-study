@@ -120,17 +120,10 @@
 ### [📖 정리노트](./contents/database)
 
 - 데이터베이스
-- 데이터베이스 성능
-  - Index
+- Index
 - 정규화
 - Transaction
-- Statement vs PreparedStatement
 - NoSQL
-  - CAP 이론
-  - 저장방식에 따른 분류
-    - Key-Value Model
-    - Document Model
-    - Column Model
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
