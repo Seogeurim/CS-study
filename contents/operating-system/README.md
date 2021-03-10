@@ -1,42 +1,38 @@
 # Operating System (운영체제)
 
-## 정리 자료
+> 작성자 : [권혁진](https://github.com/KimKwon), [이세명](https://github.com/3people), [장주섭](https://github.com/wntjq68)
 
-<!-- ex) 홍길동 : [자료명](./materials/자료명) -->
+<details>
+<summary>Table of Contents</summary>
 
-- 정희재 : 프로세스와 스레드, 스케줄러
-- 장주섭 : 동기와 비동기의 차이 , 프로세스의 동기화
-- 이세명 : [Paging, Segmentation](./materials/이세명_operating-system_memory-management.pdf)
-- 서그림 : 가상 메모리
-- 권혁진 : 캐시
+- [프로세스와 스레드](#프로세스와-스레드)
+- [스케줄러](#스케줄러)
+- [CPU 스케줄러](#CPU-스케줄러)
+- [동기와 비동기의 차이](#비동기의-차이)
+- [프로세스 동기화](#프로세스-동기화)
+- [메모리 관리 전략](#메모리-관리-전략)
+- [가상 메모리](#가상-메모리)
+- [캐시](#캐시)
 
+</details>
 
+---
 
-## 프로세스와 스레드의 차이
-
-
-
-
+## 프로세스와 스레드
 
 ## 스케줄러
 
-
-
-
-
 ## CPU 스케줄러
 
-
-
-
+---
 
 ## 동기와 비동기의 차이
 
-**Synchronous == Blocking ? Asynchronous == Non-blocking?** 
+**Synchronous == Blocking ? Asynchronous == Non-blocking?**
 
- 결론 부터 말하자면 다르다. 
+결론 부터 말하자면 다르다.
 
-동기와 비동기 , Blocking 과 Non-blocking은 각각 관심을 갖는 부분이 다르다.
+동기와 비동기, Blocking 과 Non-blocking은 각각 관심을 갖는 부분이 다르다.
 
 Sync & Async
 
@@ -44,11 +40,11 @@ Sync & Async
 
 Blocking & Non-blocking
 
-> Blocking  호출받은 쪽이 호출한 쪽에 제어권을 넘겨주지 않는 것이고 Non-blocking은 다시 제어권을 넘겨 주는 것이다.
+> Blocking 호출받은 쪽이 호출한 쪽에 제어권을 넘겨주지 않는 것이고 Non-blocking은 다시 제어권을 넘겨 주는 것이다.
 
-네가지 조합 
+네가지 조합
 
-|    Sync &  Blocking     |     Async & Blocking     |
+|     Sync & Blocking     |     Async & Blocking     |
 | :---------------------: | :----------------------: |
 | **Sync & Non-blocking** | **Async & Non-blocking** |
 
@@ -66,17 +62,11 @@ Blocking & Non-blocking
 
   잘 상상이 안 가는 그림이다. 작업완료 여부를 호출된 쪽에서 신경 쓰고 제어권도 호출된 쪽에서 가지고 있다. 사실상 Sync & Blocking과 거의 같아 잘 사용되지 않는다.
 
-- Async & Non-blocking 
+- Async & Non-blocking
 
   가장 기본적으로 생각하는 Async이다. 함수를 호출하면 제어권을 다시 호출 한쪽으로 넘겨주어 다음 동작을 이어 나가면서 호출 받은 쪽에서 알아서 콜백 함수의 결과를 리턴하여준다.
 
-  
-
-## 멀티 스레드
-
-
-
-
+---
 
 ## 프로세스 동기화
 
@@ -87,26 +77,24 @@ Blocking & Non-blocking
 
 Example
 
->```c
->Counter++;
->=>
->LOAD register1 = counter
->INCREASE register1 = register1 +1
->STORE counter = register1
->Counter--;
->=>
->LOAD register2 = counter
->DECREASE register2 = counter -1
->STORE counter = register2
->```
+> ```c
+> Counter++;
+> =>
+> LOAD register1 = counter
+> INCREASE register1 = register1 +1
+> STORE counter = register1
+> Counter--;
+> =>
+> LOAD register2 = counter
+> DECREASE register2 = counter -1
+> STORE counter = register2
+> ```
 >
->만약, counter = 5 라고 가정하고 counter++ 과 counter-- 를 서로다른 쓰레드에서 실행 시키면 실행 순서에 따라 4, 5 ,6 모두 결과 값으로 나올 수 있다.
-
-
+> 만약, counter = 5 라고 가정하고 counter++ 과 counter-- 를 서로다른 쓰레드에서 실행 시키면 실행 순서에 따라 4, 5 ,6 모두 결과 값으로 나올 수 있다.
 
 ### Ctritical Section Problem
 
- 공통된 (data) 영역에 하나의 프로세스(task or thread) 만 들어 갈 수 있도록 설계하는 것. 이러한 설계를 위해서는 세가지 요구조건이 충족 되어야 한다.
+공통된 (data) 영역에 하나의 프로세스(task or thread) 만 들어 갈 수 있도록 설계하는 것. 이러한 설계를 위해서는 세가지 요구조건이 충족 되어야 한다.
 
 1. Mutual Exclusion(상호배타)
 
@@ -120,15 +108,11 @@ Example
 
 > 한정된 대기시간을 가져야 한다 => 무한 대기 X
 
-
-
 #### Hardware Solution
 
 1. Memory Barriers
 2. Compare & Swap
-3. Atomic Variables. 
-
-
+3. Atomic Variables.
 
 #### Software Solution
 
@@ -137,21 +121,21 @@ Example
 > - Acquire() : Lock 획득
 > - Release() : Lock 방출
 >
-> Task가 Crtical Section에 들어갈 때 acquire() 하고 나올 때 release() 하여 한 Task만 Critical Section 에 들어 갈 수 있게 한다. 
+> Task가 Crtical Section에 들어갈 때 acquire() 하고 나올 때 release() 하여 한 Task만 Critical Section 에 들어 갈 수 있게 한다.
 >
 > => 화장실 칸 한개 열쇠 한개!
 >
 > ```c
-> while(true){ 
+> while(true){
 >   acquire();
 >   /* Critical Section*/
 >   release();
 >   /* Remainder Section*/
 > }
-> 
+>
 > acquire(){ // 사용가능 해지면 크리티컬 섹션에 들어간후 문을 잠금!
 >   while(!available) // Busy Waiting
->     available = false; 
+>     available = false;
 > }
 > release(){ // 사용가능 하게 해줌
 >   available = true;
@@ -160,14 +144,13 @@ Example
 >
 > 문제점 : Busy waiting(spin lock) 으로 인해 효율이 떨어진다.
 
-
 2. Semaphores
 
 > Wait 과 Signal을 이용하여 control 한다.
 >
 > Semaphore는 Critical Section에 들어갈 수 있는 task의 수이다. 자원의 갯수가 여러개라고 생각하는 것이 편하다. 따라서 Critical Section에 상호 배타적으로 들어 갈 수 있는 것이다.
 >
-> => 화장실(Critical Section)안에  칸(자원) n개 , 전광판에 n 표시
+> => 화장실(Critical Section)안에 칸(자원) n개 , 전광판에 n 표시
 >
 > Semaphore = 1 이면 Mutex Lock 과 같은 방식으로 움직인다.
 >
@@ -221,29 +204,31 @@ Example
 
 3. Monitor
 
-> 가장 발전된 기술, 이런게 있다는 것만 알고 있어도 되긴 하지만 궁금하다면, 
+> 가장 발전된 기술, 이런게 있다는 것만 알고 있어도 되긴 하지만 궁금하다면,
 >
 > Operating System Concepts 10th Edition(공룡책) 6장 내용을 참고하길 바람.
 
-
+---
 
 ## 메모리 관리 전략
 
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
 
+- 작성자 이세명 | [Paging, Segmentation](./materials/이세명_operating-system_memory-management.pdf)
 
+---
 
+## 가상 메모리
 
-## 가상메모리
-
-
-
-
+---
 
 ## 캐시
 
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
 
+- 작성자 권혁진 | [[CS] 캐시 메모리](https://nukw0n-dev.tistory.com/9)
 
-
+---
 
 ## 질의응답
 
