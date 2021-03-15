@@ -97,7 +97,7 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 ### Stack 주요 연산
 
 - `push` : 스택의 top에 원소 삽입
-- `pop` : 스택의 top에 있는 원소 삭제
+- `pop` : 스택의 top에 있는 원소 삭제 및 반환
 - `peek` : 스택의 top에 있는 원소 반환
 
 ### Stack 구현
@@ -121,6 +121,7 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 - 수식의 후위 표기법(Postfix Notation)
 - 수식의 괄호식 검사
 - 계산기 검사
+- 깊이 우선 탐색(DFS, Depth-First Search)
 
 > **프로그램의 함수 호출과 복귀에 따른 실행 순서 관리는 다음과 같은 과정을 가진다.**
 > 
@@ -146,7 +147,7 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 ### Queue 주요 연산
 
 - `enQueue` : 큐의 rear에 원소 삽입
-- `deQueue` : 큐의 front에 있는 원소 삭제
+- `deQueue` : 큐의 front에 있는 원소 삭제 및 반환
 
 ### Queue 구현
 
