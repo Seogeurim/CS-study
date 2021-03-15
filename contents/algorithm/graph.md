@@ -164,7 +164,7 @@ void initialize() {
 ```java
 int find(int n) {
     if (root[n] == n) return n;
-    return find(root[n]);
+    return root[n] = find(root[n]);
 }
 ```
 
