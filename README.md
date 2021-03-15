@@ -2,26 +2,21 @@
 
 > Since 2020.09.04
 
-## Table of Contents
-
-- [About](#About)
-- [Data Structure](#data-structure-자료구조)
-- [Algorithm](#algorithm-알고리즘)
-- [Operating System](#operating-system-운영체제)
-- [Database](#database-데이터베이스)
-- [Network](#network-네트워크)
-- [Design Pattern](#design-pattern-디자인-패턴)
-- [Language](#Language)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22045163/111120575-d9370f00-85ae-11eb-8fa3-54f47ed3caa3.png" alt="coding" width="150px" />
+</p>
 
 ## About
 
-컴퓨터 공학 전공자 및 예비 개발자로서 알아야 할 필수 전공 지식들을 정리한 저장소입니다. 더 나아가 기술 면접 준비까지를 목표로 합니다.
+알고리즘과 CS 기초 지식의 이론부터 구현까지, 컴퓨터공학 전공자 및 예비 개발자로서 알아야 할 필수 전공 지식들을 공부하고 기록한 저장소입니다. 매주 스터디한 흔적인 **발표 자료**들이 업로드되어 있으며, 더 나아가 **글**로, **질의응답** 형태로 문서화하는 것을 목표로 합니다.
 
 ### Repository Rule
 
-- **주제별 정리** : 자료 정리, 질의응답
-- **Commit convention rule** : [대주제]-소주제-분류(자료정리/질의응답)  
-  _ex) [DataStructure] Stack 자료정리_
+> [CS-study Repo 가이드](https://www.notion.so/CS-study-Repo-3428a7e4213345ffa08362c7abea8528)
+
+- **주제별 정리** : 이론정리, 구현, 자료업로드, 질의응답
+- **Commit convention rule** : [대주제] 소주제 분류(이론정리/구현/...) _ex) [DataStructure] Stack 자료정리_
+- **Branch naming convention** : 대주제/닉네임 _ex) DataStructure/Nickname_
 
 ### Collaborator
 
@@ -50,6 +45,17 @@
 - [gyoogle/tech-interview-for-developer](https://github.com/gyoogle/tech-interview-for-developer)
 - [WeareSoft/tech-interview](https://github.com/WeareSoft/tech-interview)
 - [jobhope/TechnicalNote](https://github.com/jobhope/TechnicalNote)
+
+## Table of Contents
+
+- [About](#About)
+- [Data Structure](#data-structure-자료구조)
+- [Algorithm](#algorithm-알고리즘)
+- [Operating System](#operating-system-운영체제)
+- [Database](#database-데이터베이스)
+- [Network](#network-네트워크)
+- [Design Pattern](#design-pattern-디자인-패턴)
+- [Language](#Language)
 
 ## Data Structure (자료구조)
 
