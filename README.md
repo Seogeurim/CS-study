@@ -20,6 +20,7 @@
 
 ### Collaborator
 
+<p>
 <a href="https://github.com/KimKwon">
   <img src="https://github.com/KimKwon.png" width="100">
 </a>
@@ -38,6 +39,10 @@
 <a href="https://github.com/Hee-Jae">
   <img src="https://github.com/Hee-Jae.png" width="100">
 </a>
+<a href="https://github.com/ggjae">
+  <img src="https://github.com/ggjae.png" width="100">
+</a>
+</p>
 
 ### Reference
 
