@@ -6,6 +6,17 @@
   <img src="https://user-images.githubusercontent.com/22045163/111120575-d9370f00-85ae-11eb-8fa3-54f47ed3caa3.png" alt="coding" width="150px" />
 </p>
 
+## Table of Contents
+
+- [About](#About)
+- [Data Structure](#data-structure-자료구조)
+- [Algorithm](#algorithm-알고리즘)
+- [Operating System](#operating-system-운영체제)
+- [Database](#database-데이터베이스)
+- [Network](#network-네트워크)
+- [Design Pattern](#design-pattern-디자인-패턴)
+- [Language](#Language)
+
 ## About
 
 알고리즘과 CS 기초 지식의 이론부터 구현까지, 컴퓨터공학 전공자 및 예비 개발자로서 알아야 할 필수 전공 지식들을 공부하고 기록한 저장소입니다. 매주 스터디한 흔적인 **발표 자료**들이 업로드되어 있으며, 더 나아가 **글**로, **질의응답** 형태로 문서화하는 것을 목표로 합니다.
@@ -50,17 +61,6 @@
 - [gyoogle/tech-interview-for-developer](https://github.com/gyoogle/tech-interview-for-developer)
 - [WeareSoft/tech-interview](https://github.com/WeareSoft/tech-interview)
 - [jobhope/TechnicalNote](https://github.com/jobhope/TechnicalNote)
-
-## Table of Contents
-
-- [About](#About)
-- [Data Structure](#data-structure-자료구조)
-- [Algorithm](#algorithm-알고리즘)
-- [Operating System](#operating-system-운영체제)
-- [Database](#database-데이터베이스)
-- [Network](#network-네트워크)
-- [Design Pattern](#design-pattern-디자인-패턴)
-- [Language](#Language)
 
 ## Data Structure (자료구조)
 
