@@ -1,5 +1,19 @@
 # Software Engineering (소프트웨어 공학)
 
+> 작성자 : [장주섭](https://github.com/wntjq68), [이세명](https://github.com/3people)
+
+<details>
+<summary>Table of Contents</summary>
+
+- [명령형 프로그래밍 vs 선언형 프로그래밍](#명령형-프로그래밍-vs-선언형-프로그래밍)
+- [함수형 프로그래밍](#함수형-프로그래밍)
+- [객체지향 프로그래밍](#객체지향-프로그래밍)
+- [애자일 개발 프로세스](#애자일-개발-프로세스)
+
+</details>
+
+---
+
 ## 프로그래밍 패러다임
 
 ### 명령형 프로그래밍 vs 선언형 프로그래밍
@@ -138,4 +152,12 @@
 
 4. ISP(인터페이스 분리의 원칙 : Interface Segregation Principle) : 한 클래스는 자신이 사용하지 않는 인터페이스는 구현하지 말아야 한다는 원칙. 즉 최소한의 인터페이스를 사용하는 것이 좋고 하나의 일반적인 인터페이스 보다 여러개의 구체적인 인터페이스가 낫다는 것이다. SRP 는 클래스의 단일 책임이라면 ISP는 인터페이스의 단일 책임을 강조하는 것이다.
 
-5. DIP(의존성 역전의 원칙 : Dependency Inversion Principle) : 자주 변화하는 구체적인 클래스 보다는 변화하기 어려운 인터페이스나 상위(추상) 클래스와 관계를 맺으 라는 원칙
+5. DIP(의존성 역전의 원칙 : Dependency Inversion Principle) : 자주 변화하는 구체적인 클래스 보다는 변화하기 어려운 인터페이스나 상위(추상) 클래스와 관계를 맺으라는 원칙
+
+---
+
+## 애자일 개발 프로세스
+
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+
+- 작성자 이세명 | [Agile Software Development](./materials/CS_(Agile).pdf)
