@@ -8,14 +8,32 @@
 
 ## Table of Contents
 
-- [About](#About)
-- [Data Structure](#data-structure-자료구조)
-- [Algorithm](#algorithm-알고리즘)
-- [Operating System](#operating-system-운영체제)
-- [Database](#database-데이터베이스)
-- [Network](#network-네트워크)
-- [Design Pattern](#design-pattern-디자인-패턴)
-- [Language](#Language)
+- [Basic Knowledge of Computer Science](#basic-knowledge-of-computer-science)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+    - [Repository Rule](#repository-rule)
+    - [Collaborator](#collaborator)
+    - [Reference](#reference)
+  - [Data Structure (자료구조)](#data-structure-자료구조)
+    - [📖 정리노트](#-정리노트)
+      - [기본 자료 구조](#기본-자료-구조)
+      - [응용 자료 구조](#응용-자료-구조)
+  - [Algorithm (알고리즘)](#algorithm-알고리즘)
+    - [📖 정리노트](#-정리노트-1)
+      - [알고리즘 기본](#알고리즘-기본)
+      - [알고리즘 응용](#알고리즘-응용)
+  - [Operating System (운영체제)](#operating-system-운영체제)
+    - [📖 정리노트](#-정리노트-2)
+  - [Database (데이터베이스)](#database-데이터베이스)
+    - [📖 정리노트](#-정리노트-3)
+  - [Network (네트워크)](#network-네트워크)
+    - [📖 정리노트](#-정리노트-4)
+  - [Design Pattern (디자인 패턴)](#design-pattern-디자인-패턴)
+    - [📖 정리노트](#-정리노트-5)
+  - [Software Engineering (소프트웨어 공학)](#software-engineering-소프트웨어-공학)
+    - [📖 정리노트](#-정리노트-6)
+  - [Language](#language)
+    - [📖 정리노트](#-정리노트-7)
 
 ## About
 
@@ -158,6 +176,17 @@
 
 - 디자인 패턴의 개념과 종류
 - Singleton 패턴
+
+[🔝 목차로 돌아가기](#table-of-contents)
+
+## Software Engineering (소프트웨어 공학)
+
+### [📖 정리노트](./contents/software-engineering)
+
+- 프로그래밍 패러다임
+  - 명령형 프로그래밍 vs 선언형 프로그래밍
+  - 함수형 프로그래밍
+  - 객체지향 프로그래밍
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
