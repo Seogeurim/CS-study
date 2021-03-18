@@ -232,4 +232,57 @@ Example
 
 ## 질의응답
 
-> 아직 없습니다.
+<details>
+<summary>프로그램과 프로세스의 차이에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>프로세스가 도중에 중지되는 경우, 그 원인과 다시 실행할 수 있는 방법은 무엇일까요?</summary>
+
+</details>
+
+<details>
+<summary>스레드와 멀티 스레드의 차이에 대하여 설명하고, 멀티 스레드의 장단점을 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>스택을 스레드마다 독립적으로 할당하는 이유가 무엇인가요?</summary>
+
+</details>
+
+<details>
+<summary>커널 스레드에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>Context Switching에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>스케줄러와 CPU 스케줄러의 차이에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>스케줄러의 종류에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>CPU 스케줄러의 종류에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>FCFS 스케줄링을 개선한 스케줄링 방식에 대하여 설명해보세요.</summary>
+
+</details>
+
+<details>
+<summary>Round Robin 스케줄링 방식에서 time quantum 설정에 따른 결과를 설명해보세요.</summary>
+
+</details>
