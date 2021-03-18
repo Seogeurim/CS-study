@@ -171,7 +171,7 @@ POST 방식은 요청하는 데이터가 HTTP Request Message의 Body 부분에 
 
 - Default : application/octet-stream
 - 단순 txt : text/plain
-- 파일 : multipart/form-date
+- 파일 : multipart/form-data
 
 POST 방식은 다음과 같은 특징이 있다.
 
