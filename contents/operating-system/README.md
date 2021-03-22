@@ -1,6 +1,6 @@
 # Operating System (운영체제)
 
-> 작성자 : [권혁진](https://github.com/KimKwon), [이세명](https://github.com/3people), [장주섭](https://github.com/wntjq68)
+> 작성자 : [권혁진](https://github.com/KimKwon), [윤가영](https://github.com/yoongoing), [이세명](https://github.com/3people), [장주섭](https://github.com/wntjq68)
 
 <details>
 <summary>Table of Contents</summary>
