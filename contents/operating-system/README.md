@@ -6,8 +6,9 @@
 <summary>Table of Contents</summary>
 
 - [프로세스와 스레드](#프로세스와-스레드)
-- [스케줄러](#스케줄러)
-- [CPU 스케줄러](#CPU-스케줄러)
+- [멀티 프로세스와 멀티 스레드](#멀티-프로세스와-멀티-스레드)
+- [프로세스 스케줄링](#프로세스-스케줄링)
+- [CPU 스케줄링](#CPU-스케줄링)
 - [동기와 비동기의 차이](#동기와-비동기의-차이)
 - [프로세스 동기화](#프로세스-동기화)
 - [메모리 관리 전략](#메모리-관리-전략)
@@ -81,7 +82,7 @@ Context-Switching 이란, **CPU 코어를 다른 프로세스로 전환하기 �
 
 - Context란 CPU가 프로세스를 실행하기 위한 정보를 말하며, PCB에 저장되는 정보들이 해당된다.
 - Context-Switching이 발생하면 커널이 이전 프로세스의 context를 그 프로세스의 PCB에 저장하고 새롭게 실행할 (스케줄링으로 예약) 프로세스의 저장된 context를 불러오게 된다.
-- Context-Switching 수행 중에는 CPU의 자원이 어떤 프로세스에 할당된 상태가 아니기 때문에 CPU가 아무 작업도 할 수 없다. (따라서 Context-Switching time은 Pure Overhead)
+- Context-Switching 수행 중에는 CPU의 자원이 어떤 프로세스에 할당된 상태가 아니기 때문에 CPU가 아무 작업도 할 수 없다. (따라서 Context-Switching time은 pure overhead)
 
 ### 멀티 프로세스 (Multi-Process)
 
@@ -143,9 +144,30 @@ Context-Switching 이란, **CPU 코어를 다른 프로세스로 전환하기 �
 - 스레드는 프로세스 내 자원을 공유하기 때문에 스레드 하나에서 오류가 발생하면 같은 프로세스 내의 모든 스레드가 종료될 수 있다.
 - 공유 자원에 대한 동기화 문제를 고려해야 한다.
 
-## 스케줄러
+## 프로세스 스케줄링
 
-## CPU 스케줄러
+프로세스 스케줄러는 **멀티 프로그래밍**과 **time sharing**의 목적을 달성하기 위해 실행 가능한 여러 프로세스 중에서 하나의 프로세스를 선택해 실행한다. 각 CPU 코어는 한번에 한 프로세스를 실행할 수 있다. 따라서 단일 CPU 코어 시스템에 반해 멀티 코어 시스템은 한 번에 여러 프로세스를 실행할 수 있다.
+
+- 멀티 프로그래밍 (multiprogramming) : CPU 사용률을 최대화하기 위해 항상 프로세스를 실행하도록 한다. 어떤 프로세스가 CPU를 사용하다가 I/O 작업 등 CPU를 필요로 하지 않는 순간이 오면 다른 프로세스가 CPU를 사용할 수 있도록 한다.
+- 시분할 (time sharing) : 각 프로그램이 실행되는 동안 사용자들이 상호작용할 수 있도록 프로세스 간 CPU 코어를 자주 전환하는 것이다. CPU가 하나의 프로그램을 수행하는 시간을 매우 짧은 시간(ms)으로 제한하여 프로그램을 번갈아 수행하도록 하면 CPU가 하나인 환경에서도 여러 사용자가 동시에 사용하는 듯한 효과를 가져올 수 있다.
+
+### 스케줄링 큐
+
+#### Ready Queue
+
+- 프로세스가 시스템에 들어오면 ready queue에 들어가서 CPU 코어에서 실행되기를 기다린다.
+- Linked List 형태로 저장되며, ready queue의 header는 list의 첫번째 PCB를 가리키고, 각 PCB의 포인터는 ready queue에 있는 다음 PCB를 가리킨다.
+
+#### Wait Queue
+
+- I/O 요청과 같은 특정 이벤트가 처리 완료되기까지를 기다리는 프로세스가 wait queue에 배치된다.
+- 프로세스는 waiting 상태에서 ready 상태로 바뀌면 ready queue에 들어가게 된다.
+
+![queueing-diagram](materials/queueing-diagram.jpeg)
+
+프로세스는 종료될 때까지 위의 Queueing-diagram과 같은 주기를 반복하고, 종료되면 모든 큐에서 제거되고 PCB 및 자원 할당이 해제된다.
+
+## CPU 스케줄링
 
 ---
 
@@ -412,10 +434,11 @@ Example
 
 - **스레드** : 할당 받은 자원을 이용한 프로세스의 실행 흐름의 단위이다.
 - **멀티 스레드** : 한 프로세스 내에서 이러한 스레드가 여러 개 동작하는 방식을 의미한다.
+</p>
+<p>
 
 - 멀티스레드의 장점 : 프로세스를 여러개 두는 방식에 비해 컨텍스트 스위칭 비용이 적게 들며 응답 시간이 빠르다는 장점이 있다.
 - 멀티스레드의 단점 : 같은 프로세스 내의 자원을 다른 스레드들과 공유하므로 `동기화 문제`를 고려해야 한다. 또한 프로세스가 종료되면 내부 스레드들 역시 모두 종료되므로 한 스레드가 프로세스를 의도치 않게 종료했을 경우 나머지 스레드들도 모두 종료될 수 있다는 단점이 있다.
-
 </p>
 </details>
 
@@ -558,5 +581,6 @@ Reentrant는 재진입성이라는 의미로, Reentrant 함수는 여러 스레�
 
 ## Reference
 
-> - Operating System Concepts 10th Edition
-> - [스택, 힙, 코드, 데이터영역](https://selfish-developer.com/entry/스택-힙-코드-데이터영역)
+> - Operating System Concepts - 10th Edition
+> - [스택, 힙, 코드, 데이터영역 - 아는 개발자](https://selfish-developer.com/entry/스택-힙-코드-데이터영역)
+> - [\[운영체제(OS)\] 5. 프로세스 관리 - codemcd](https://velog.io/@codemcd/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9COS-5.-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B4%80%EB%A6%AC)
