@@ -167,7 +167,11 @@ Context-Switching 이란, **CPU 코어를 다른 프로세스로 전환하기 �
 
 프로세스는 종료될 때까지 위의 Queueing-diagram과 같은 주기를 반복하고, 종료되면 모든 큐에서 제거되고 PCB 및 자원 할당이 해제된다.
 
+> 내용 추가 예정
+
 ## CPU 스케줄링
+
+> 내용 추가 예정
 
 ---
 
@@ -529,6 +533,26 @@ RR 기법에서
 ---
 
 <details>
+<summary>Synchronous 와 Asynchronous의 차이점이 무엇인가요.</summary>
+<p>
+
+호출되는 함수에 대해 작업 완료 여부를 호출한 쪽에서 확인하면 Synchronous, 반대로 호출 받은 쪽에서 확인을 하면 Asynchronous 라고 한다.
+
+</p>
+</details>
+
+<details>
+<summary>Blocking 과 Non-Blocking의 차이점이 무엇인가요.</summary>
+<p>
+
+호출 받은 쪽에서 함수값을 바로 리턴하지 않고 제어권을 들고 있으면 Blocking, 바로 리턴을 해주어 다른 일을 할 수 있으면 Non-blocking 이다.
+
+</p>
+</details>
+
+---
+
+<details>
 <summary>Race Condition(경쟁 상태)에 대하여 간단한 예시를 들어 설명해주세요.</summary>
 <p>
 
@@ -577,39 +601,15 @@ Reentrant는 재진입성이라는 의미로, Reentrant 함수는 여러 스레�
 </p>
 </details>
 
----
-
-<details>
-<summary>Synchronous 와 Asynchronous의 차이점이 무엇인가요.</summary>
-<p>
-
-호출 되는 함수에 대해 작업 완료 여부를 호출한 쪽에서 확인하면 Synchronous 반대로 호출받은 쪽에서 확인을 하면 Asynchronous 라고 한다.
-
-</p>
-</details>
-
-<details>
-<summary>Blocking 과 Non-Blocking의 차이점이 무엇인가요.</summary>
-<p>
-
-호출 받은 쪽에서 함수값을 바로 리턴 하지 않고 제어권을 들고 있으면 Blocking, 바로 리턴을 해주어 다른일을 할 수 있으면 Non-blocking 이다.
-
-</p>
-</details>
-
-
 <details>
 <summary>Mutex Lock 과 Semaphore 의 차이점이 무엇인가요.</summary>
 <p>
 
-- Semaphore 는 Mutex Lock이 될 수 있지만 역은 성립하지 않는다.
-  
-- Semaphore 는 프로세스 범위에서 소유 불가능 하고 Mutex는 소유 가능하다.
-  
+- Semaphore는 Mutex Lock이 될 수 있지만 역은 성립하지 않는다.
+- Semaphore는 프로세스 범위에서 소유 불가능하고 Mutex는 소유 가능하다.
 - Mutex Lock은 Lock을 갖고 있는 thread가 해제 가능한 반면, Semaphore는 외부에서도 해제 가능하다.
-  
-- Semaphore 는 시스템 범위에 걸쳐져 있고 파일형태로 존재하는 반면, Mutex Lock은 프로세스 범위 내에 잇어서 종료시 자동으로 clean up 된다.
-  
+- Semaphore는 시스템 범위에 걸쳐져 있고 파일 형태로 존재하는 반면, Mutex Lock은 프로세스 범위 내에 있어서 종료 시 자동으로 clean up 된다.
+
 </p>
 </details>
 
