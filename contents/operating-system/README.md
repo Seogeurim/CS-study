@@ -579,6 +579,42 @@ Reentrant는 재진입성이라는 의미로, Reentrant 함수는 여러 스레�
 
 ---
 
+<details>
+<summary>Synchronous 와 Asynchronous의 차이점이 무엇인가요.</summary>
+<p>
+
+호출 되는 함수에 대해 작업 완료 여부를 호출한 쪽에서 확인하면 Synchronous 반대로 호출받은 쪽에서 확인을 하면 Asynchronous 라고 한다.
+
+</p>
+</details>
+
+<details>
+<summary>Blocking 과 Non-Blocking의 차이점이 무엇인가요.</summary>
+<p>
+
+호출 받은 쪽에서 함수값을 바로 리턴 하지 않고 제어권을 들고 있으면 Blocking, 바로 리턴을 해주어 다른일을 할 수 있으면 Non-blocking 이다.
+
+</p>
+</details>
+
+
+<details>
+<summary>Mutex Lock 과 Semaphore 의 차이점이 무엇인가요.</summary>
+<p>
+
+- Semaphore 는 Mutex Lock이 될 수 있지만 역은 성립하지 않는다.
+  
+- Semaphore 는 프로세스 범위에서 소유 불가능 하고 Mutex는 소유 가능하다.
+  
+- Mutex Lock은 Lock을 갖고 있는 thread가 해제 가능한 반면, Semaphore는 외부에서도 해제 가능하다.
+  
+- Semaphore 는 시스템 범위에 걸쳐져 있고 파일형태로 존재하는 반면, Mutex Lock은 프로세스 범위 내에 잇어서 종료시 자동으로 clean up 된다.
+  
+</p>
+</details>
+
+---
+
 ## Reference
 
 > - Operating System Concepts - 10th Edition
