@@ -197,6 +197,10 @@ POST 방식은 다음과 같은 특징이 있다.
 
 ## HTTP 와 HTTPS
 
+아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+
+- 작성자 권혁진 | [HTTP와 HTTPS](https://nukw0n-dev.tistory.com/11?category=940859)
+
 ---
 
 ## DNS round robin 방식과 웹 통신의 흐름
