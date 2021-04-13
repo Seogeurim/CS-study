@@ -400,7 +400,7 @@ DNS 시스템은 ip주소와 도메인 이름의 매핑을 관리합니다. DNS 
 <summary>DNS 서버의 Recursive Query 과정을 설명해주세요.</summary>
 <p>
 
-로컬 DNS 서버가 여러 DNS 서버를 차례대로 (루트 -> com -> naver.com DNS 서버) 질의해서 ip 주소를 찾아가는 과정을 말합니다.
+로컬 DNS 서버가 여러 DNS 서버를 차례대로 (루트 → com → naver.com DNS 서버) 질의해서 ip 주소를 찾아가는 과정을 말합니다.
 
 </p>
 </details>
