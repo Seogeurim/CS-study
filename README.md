@@ -112,6 +112,7 @@
   - Union Find & Kruskal
 - 두 포인터 (two-pointer)
 - 문자열 처리 알고리즘
+  - KMP 알고리즘
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
