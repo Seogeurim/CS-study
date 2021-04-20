@@ -4,6 +4,7 @@
 
 - [싱글톤 (Singleton)](singleton.md)
 - [싱글톤 Java 구현 방법](singleton-java.md)
+- [팩토리 (Factory)](factory.md)
 
 ---
 
