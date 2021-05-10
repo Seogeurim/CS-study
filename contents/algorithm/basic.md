@@ -1,6 +1,6 @@
 # 알고리즘 기본
 
-> 작성자 : [권혁진](https://github.com/KimKwon), [박재용](https://github.com/ggjae)
+> 작성자 : [권혁진](https://github.com/KimKwon), [박재용](https://github.com/ggjae), [서그림](https://github.com/Seogeurim)
 
 <details>
 <summary>Table of Contents</summary>
@@ -57,13 +57,317 @@ O(N<sup>3</sup>)을 넘어가면 문제 풀이에서 사용하기 어려운 알�
 
 ## DFS와 BFS
 
-아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
+> 스터디 자료 - 작성자 권혁진 | [깊이우선탐색 DFS 에 대하여](https://nukw0n-dev.tistory.com/5)
 
-- 작성자 권혁진 | [깊이우선탐색 DFS 에 대하여](https://nukw0n-dev.tistory.com/5)
+### DFS(Depth First Search, 깊이 우선 탐색)
+
+- 한 경로로 최대한 깊숙하게 들어가서 탐색한 후 다시 돌아가 다른 경로로 탐색하는 방식
+- 재귀함수, Stack을 이용해 구현
+- 유의할 점 : Stack Overflow (기저조건 잘 설정)
+- 활용 : 백트래킹, 단절선/단절점 찾기, 위상정렬, 사이클 찾기 등
+
+#### DFS 구현
+
+```java
+void dfs(int current) {
+    if (current == target) { // 목적지인가?
+        System.out.println("목적지입니다.");
+        return;
+    }
+    visited[current] = true; // 체크인
+    for (int next : graph[current]) { // 갈 수 있는 곳을 순회
+        if (!visited[next]) { // 갈 수 있는가?
+            dfs(next); // 간다
+        }
+    }
+    visited[current] = false; // 체크아웃
+}
+```
+
+### BFS(Breadth First Search, 너비 우선 탐색)
+
+- 시작 노드에서 시작하여 인접한 노드를 먼저 탐색하는 방식, 여러 경로 동시에 탐색 가능
+- Queue를 이용해 구현
+- 유의할 점 : 메모리 초과 (방문 체크 꼭 해줘야 함)
+- 활용 : 최단경로 찾기, 위상정렬 등
+
+#### BFS 구현
+
+```java
+void bfs(int start) {
+    Queue<Integer> q = new LinkedList<>();
+    q.offer(start);
+    visited[start] = true;
+    
+    while (!q.isEmpty()) {
+        int current = q.poll(); // 큐에서 꺼낸다
+        if (current == target) { // 목적지인가?
+            System.out.println("목적지입니다.");
+            return;
+        }
+        for (int next : graph[current]) { // 갈 수 있는 곳을 순회
+            if (!visited[next]) { // 갈 수 있는가?
+                visited[next] = true; // 체크인
+                q.offer(next); // 큐에 넣는다
+            }
+        }
+    }
+}
+```
 
 ---
 
 ## 순열, 조합, 부분집합
+
+### 순열
+
+- 서로 다른 것들 중 몇 개를 뽑아서 한 줄로 나열하는 것
+- 서로 다른 n개 중 r개를 택하는 순열 `nPr = n * (n-1) * (n-2) * ... * (n-r+1)`
+- `nPn = n!` 이며 `10!` 이상의 계산은 위험하다.
+
+#### 순열 구현 : 재귀 함수, 비트마스크, next permutation
+
+```java
+public class PermutationTest {
+
+    static int N;
+    static int[] input, result;
+    static boolean[] isSelected;
+
+    public static void main(String[] args) {
+
+        N = 5; // N 초기화
+        input = new int[N]; // 입력 받은 숫자 배열
+        result = new int[N]; // 순열 결과를 저장할 배열
+        isSelected = new boolean[N]; // 선택 정보를 관리할 배열
+
+        for (int i = 0; i < N; i++) {
+            input[i] = i; // input 배열 초기화
+        }
+
+        System.out.println("Permutation Recursive");
+        recursive(0);
+
+        System.out.println("Permutation Bitmask");
+        bitmask(0, 0);
+
+        System.out.println("Permutation Next Permutation");
+        Arrays.sort(input); // 오름차순 정렬하여 가장 작은 순열의 형태로 만듦
+        do {
+            System.out.println(Arrays.toString(input));
+        } while (np());
+    }
+
+    // 재귀 함수
+    private static void recursive(int cnt) {
+        if (cnt == N) {
+            System.out.println(Arrays.toString(result));
+            return;
+        }
+
+        for (int i = 0; i < N; i++) {
+            if (isSelected[i]) continue;
+
+            result[cnt] = input[i];
+            isSelected[i] = true;
+            recursive(cnt+1);
+            isSelected[i] = false;
+        }
+    }
+
+    // 비트마스크
+    private static void bitmask(int cnt, int flag) {
+        if (cnt == N) {
+            System.out.println(Arrays.toString(result));
+            return;
+        }
+
+        for (int i = 0; i < N; i++) {
+            if ((flag & 1<<i) != 0) continue;
+
+            result[cnt] = input[i];
+            bitmask(cnt+1, flag | 1<<i);
+        }
+    }
+
+    // next permutation
+    private static boolean np() {
+        int i = N-1;
+        while (i > 0 && input[i-1] >= input[i]) --i;
+
+        // 더이상 앞자리가 없는 상황 : 현 순열의 상태가 가장 큰 순열 (마지막 순열)
+        if (i == 0) return false;
+
+        int j = N-1;
+        while (input[i-1] >= input[j]) --j; // i-1보다 큰 값은 무조건 있음 (적어도 i)
+
+        swap(i-1, j);
+
+        int k = N-1;
+        while (i < k) {
+            swap(i++, k--);
+        }
+
+        return true;
+    }
+
+    private static void swap(int i, int j) {
+        int temp = input[i];
+        input[i] = input[j];
+        input[j] = temp;
+    }
+}
+```
+
+### 조합
+
+- 서로 다른 n개의 원소 중 r개를 **순서 없이** 골라낸 것
+- 서로 다른 n개 중 r개를 택하는 조합 `nCr = n! / (n-r)!r!`
+
+#### 조합 구현 : 재귀 함수, next permutation
+
+```java
+public class CombinationTest {
+
+    static int N, R;
+    static int[] input, result, P;
+
+    public static void main(String[] args) {
+
+        N = 5; // N 초기화
+        R = 3;
+        input = new int[N]; // 입력 받은 숫자 배열
+        result = new int[R]; // 조합 결과를 저장할 배열
+
+        for (int i = 0; i < N; i++) {
+            input[i] = i; // input 배열 초기화
+        }
+
+        System.out.println("Combination Recursive");
+        recursive(0, 0);
+
+        System.out.println("Combination Next Permutation");
+        P = new int[N]; // N 크기의 flag 배열
+        // 원소 크기와 같은 크기의 int 배열 P를 생성하여 뒤에서 r개를 1로 초기화
+        int cnt = 0;
+        while (++cnt <= R) P[N-cnt] = 1;
+
+        do {
+            for (int i = 0; i < N; i++) {
+                // P 배열에서 0이 아닌 값을 갖고 있는 위치에 해당하는 원소가 조합에 선택된 것
+                if (P[i] == 1) System.out.print(input[i] + " ");
+            }
+            System.out.println();
+        } while (np());
+    }
+
+    private static void recursive(int cnt, int start) {
+        if (cnt == R) {
+            System.out.println(Arrays.toString(result));
+            return;
+        }
+
+        for (int i = start; i < N; i++) {
+            result[cnt] = input[i];
+            recursive(cnt+1, i+1);
+        }
+    }
+
+    private static boolean np() {
+        // STEP 1
+        int i = N-1;
+        while (i > 0 && P[i-1] >= P[i]) --i;
+
+        if (i == 0) return false;
+
+        // STEP 2
+        int j = N-1;
+        while (P[i-1] >= P[j]) --j;
+
+        // STEP 3
+        swap(i-1, j);
+
+        // STEP 4
+        int k = N-1;
+        while (i < k) {
+            swap(i++, k--);
+        }
+
+        return true;
+    }
+
+    private static void swap(int i, int j) {
+        int temp = P[i];
+        P[i] = P[j];
+        P[j] = temp;
+    }
+}
+```
+
+### 부분집합
+
+- 집합에 포함된 원소들을 선택하는 것
+- 집합의 원소가 n개일 때, 공집합을 포함한 부분집합(멱집합, power set)의 개수는 2<sup>N</sup>개이다.
+  (각 원소를 포함시키거나 / 포함시키지 않거나)
+
+#### 부분집합 구현 : 재귀 함수, 바이너리 카운팅
+
+```java
+public class SubsetTest {
+
+    static int N;
+    static int[] input;
+    static boolean[] isSelected;
+
+    public static void main(String[] args) {
+
+        N = 3; // N 초기화
+        input = new int[N]; // 입력 받은 숫자 배열
+        isSelected = new boolean[N]; // 선택 정보를 관리할 배열
+
+        for (int i = 0; i < N; i++) {
+            input[i] = i; // input 배열 초기화
+        }
+
+        System.out.println("Subset Recursive");
+        recursive(0);
+
+        System.out.println("Subset Binary Counting");
+        binaryCounting(1<<N); // 2^N
+    }
+
+    private static void recursive(int cnt) {
+        if (cnt == N) {
+            for (int i = 0; i < N; i++) {
+                System.out.print( (isSelected[i] ? input[i] : "X") + " ");
+            }
+            System.out.println();
+            return;
+        }
+
+        // 선택
+        isSelected[cnt] = true;
+        recursive(cnt+1);
+        // 비선택
+        isSelected[cnt] = false;
+        recursive(cnt+1);
+    }
+
+    private static void binaryCounting(int caseCount) {
+
+        for (int flag = 0; flag < caseCount; flag++) { // flag : 비트마스크되어 있는 수
+            for (int j = 0; j < N; j++) {
+                if ((flag & 1<<j) != 0) {
+                    System.out.print(input[j] + " ");
+                } else {
+                    System.out.print("X ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+```
 
 ---
 
