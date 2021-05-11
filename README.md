@@ -137,8 +137,8 @@
 ### [📖 정리노트](./contents/database)
 
 - 데이터베이스
-- Index
 - 정규화
+- Index
 - Transaction
 - NoSQL
 
