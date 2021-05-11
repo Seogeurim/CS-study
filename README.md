@@ -164,6 +164,7 @@
 
 - 디자인 패턴의 개념과 종류
 - Singleton 패턴
+- Factory 패턴
 
 [🔝 목차로 돌아가기](#table-of-contents)
 
