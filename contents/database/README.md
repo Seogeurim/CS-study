@@ -304,6 +304,7 @@ ex2) ex1에 대한 중복을 제거하기 위한 여러개의 전화번호 행�
 
 <!-- NoSQL -->
 
+<details>
 <summary>NoSQL의 장점은 무엇인가?</summary>  
 <p>
 
@@ -312,6 +313,7 @@ JOIN 처리가 없기 때문에 스케일 아웃을 통한 노드확장이 용�
 </p>
 </details>
 
+<details>
 <summary>어떤 상황에서 NoSQL을 사용하는것이 적합한가?</summary>  
 <p>
 
