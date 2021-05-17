@@ -226,7 +226,7 @@ Time quantum 설정 시 주의할 점
 - Time quantum이 너무 크다면 : FCFS와 같아진다.
 - Time quantum이 너무 작다면 : Context Switching이 너무 빈번하게 일어나 overhead가 발생한다.
 
-위와 같이 RR 알고리즘의 성능은 time quantum의 크기에 좌우될 수 있으므로 적절히 선정해야 하며, 이는 context-switch time보다 큰 것이 좋으며, 또 너무 커서는 안 된다. (경험적으로 CPU burst의 80프로는 time quantum보다 짧은게 좋다고 함)
+위와 같이 RR 알고리즘의 성능은 time quantum의 크기에 좌우될 수 있으므로 적절히 선정해야 하며 이는 context-switch time보다 큰 것이 좋지만 또 너무 커서는 안 된다. (경험적으로 CPU burst의 80프로는 time quantum보다 짧은게 좋다고 함)
 
 #### Priority Scheduling
 
