@@ -366,6 +366,10 @@ NoSQL에서는 의도적으로 중복을 허용하여 성능적인 이점을 얻
 
 ---
 
+<!-- Transaction -->
+
+---
+
 ## Reference
 
 > - Database System Concepts - 6th edition
