@@ -156,7 +156,7 @@ Context-Switching 이란, **CPU 코어를 다른 프로세스로 전환하기 �
 ![image](materials/process-state-diagram.png)
 
 - **New** : 프로세스가 생성됨
-- **Running** : Instruction이 실행됨
+- **Running** : 프로세스의 Instruction이 실행됨
 - **Waiting** : (I/O 작업 완료나 신호 수신과 같은) 이벤트가 발생하기를 기다림
 - **Ready** : 프로세서에 할당되기를 기다림
 - **Terminated** : 프로세스가 실행을 끝냄
