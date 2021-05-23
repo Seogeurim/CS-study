@@ -461,6 +461,68 @@ Commit 요청이 들어오면 Partial Commited 상태가 되는데, 이 때 Comm
 
 ---
 
+<details>
+<summary>
+트랜잭션을 병행 제어없이 병행으로 DB에 동시에 접근 할 경우 발생하는 문제점이 무엇인가요?</summary>  
+<p>
+
+1. 갱신 분실 : 같은 데이터를 공유하여 갱신 할 때 갱신 결과의 일부가 사라짐
+
+2. 모순성 : 동시에 같은 데이터를 갱신할 때, 데이터의 상호 불일치 발생
+
+3. 연쇄 복귀 : 트랜잭션 하나에 문제가 발생하여 롤백시 나머지 트랜재션도 다같이 롤백됨
+
+</p>
+</details>
+
+<details>
+<summary>
+교착상태가 일어나기위한 네가지 조건을 설명해주세요</summary>  
+<p>
+
+1. Mutual Exclusion : 자원을 공유하지 않음, 자원을 공유한다면 서로 기다릴 필요가 없음.
+
+2. Hold & Wait : 자원을 소유하고 있으면서 다른 자원도 기다리는 상태
+
+3. No Preemption : 자원을 한번 얻으면 완전 종료까지 자원을 놓지 못함, (상대방이 가로채갈 수 없음)
+
+4. Circular Wait : 원형의 형태로 자원을 기다림
+
+</p>
+</details>
+
+<details>
+<summary>
+Deadlock Prevention 과 Avoidance 의 차이는 무엇인가요?</summary>  
+<p>
+
+1. Prevention : 네가지 조건 중 한가지를 막아 Deadlock이 일어나지 않게 하는 것(사전 차단)
+
+2. Avoidance : Deadlock의 가능성이 없는 경우에만 (safe state) 에만 자원을 할당
+
++그렇다면 Unsafe state == Deadlock 인가?
+NO, Unsafe state는 Deadlock이 일어 날 수 도 있는 상태를 의미함
+
+</p>
+</details>
+
+<details>
+<summary>
+Deadlock Prevention , Avoidance 그리고 Ignorance 세가지 방법중에 실제 일반적인 OS에서 가장 많이 사용하는 방식은 무엇이라 생각하시나요?</summary>  
+<p>
+
+1. Ignorance
+
+    이유: 비용 문제, 프로세스를 그냥 죽여 버림
+
+2. 로켓 발사나 비행기 운전 시스템과 같이 Deadlock 절대 걸려서는 안되는 정밀하고 중요한 시스템 OS에서만 Prevention이나 Avoidance를 사용함
+
+
+</p>
+</details>
+
+---
+
 ## Reference
 
 > - Database System Concepts - 6th edition
