@@ -366,6 +366,164 @@ NoSQL에서는 의도적으로 중복을 허용하여 성능적인 이점을 얻
 
 ---
 
+<!-- Transaction -->
+
+<details>
+<summary>트랜잭션이란 무엇이며 왜 사용해야 하는지 말씀해주세요.</summary>  
+<p>
+
+- 키워드 1: 완전성을 보장해 주는 것
+- 키워드 2: 작업의 논리적 단위
+
+트랜잭션이란 데이터베이스의 상태 변화에 대한 작업의 논리적 단위를 말합니다. 사용 이유는 데이터의 완전성을 보장하기 위해서입니다. 트랜잭션을 통해 여러 쿼리 중 하나라도 실패했을 때 데이터베이스의 상태를 일관성을 유지한 상태로 원상복귀시킬 수 있고, 이를 통해 오류가 발생하더라도 언제나 데이터의 상태를 신뢰할 수 있습니다.
+
+</p>
+</details>
+
+<details>
+<summary>트랜잭션은 ACID라는 4가지 특성을 만족해야 합니다. 이 4가지 특성에 대해 자세히 말씀해주세요.</summary>  
+<p>
+
+- A : 원자성 (Atomicity) | 트랜잭션에 해당하는 작업 내용이 (모두 성공했을 시) 모두 반영되거나, (하나라도 실패했을 시) 모두 반영되지 않아야 한다.
+- C : 일관성 (Consistency) | 트랜잭션 처리 결과는 항상 데이터의 일관성을 보장해야 한다.
+- I : 고립성 (Isolation) | 둘 이상의 트랜잭션이 동시에 실행되고 있을 때, 각 트랜잭션은 서로 간섭 없이 독립적으로 수행되어야 한다.
+- D : 지속성 (Durability) | 트랜잭션이 성공적으로 완료된다면, 그 결과가 데이터베이스에 영구적으로 반영되어야 한다.
+
+</p>
+</details>
+
+<details>
+<summary>A 계좌에서 B계좌로 일정 금액을 이체하는 작업에 대해 생각해봅시다. 이 때 트랜잭션은 어떻게 정의할 수 있을까요?</summary>  
+<p>
+
+(예시) A 계좌의 잔액 확인 SELECT문 + A 계좌의 금액 차감 UPDATE문 + B 계좌의 금액 추가 UPDATE문으로 정의할 수 있습니다.
+
+</p>
+</details>
+
+<details>
+<summary>(위 질문과 연결) 방금 말씀해주신 쿼리문에 대해서 Commit 연산과 Rollback 연산이 일어나는 경우는 각각 어떤 상황일까요?</summary>  
+<p>
+
+Commit 연산은 한 트랜잭션 단위에 포함된 모든 쿼리문이 성공적으로 완료되었을 경우 수행됩니다. 하나의 트랜잭션이 성공적으로 끝났고, 데이터베이스가 일관성이 있는 상태라는 것을 알려주기 위해 사용되는 연산입니다.
+Rollback 연산은 트랜잭션에 포함된 쿼리 중 하나라도 실패하면 수행되며 모든 쿼리문을 취소하고 이전 상태로 돌려놓습니다. Rollback 연산을 통해 트랜잭션 처리가 실패하여 데이터베이스의 일관성을 깨뜨렸을 때, 트랜잭션의 원자성을 구현할 수 있습니다.
+
+</p>
+</details>
+
+<details>
+<summary>트랜잭션의 Commit 연산에 대해서 트랜잭션의 상태를 통해 설명해주세요.</summary>  
+<p>
+
+트랜잭션이 시작되면 활동(Active) 상태가 됩니다. 그리고 트랜잭션에 포함된 모든 연산이 실행되면 부분 완료(Partially Commited) 상태가 됩니다. 그리고 Commit 연산을 실행한 후, 완료(Commited) 상태가 되어 트랜잭션이 성공적으로 종료되게 됩니다.
+
+</p>
+</details>
+
+<details>
+<summary>트랜잭션의 Rollback 연산에 대해서 트랜잭션의 상태를 통해 설명해주세요.</summary>  
+<p>
+
+트랜잭션이 시작되면 활동(Active) 상태가 됩니다. 그리고 트랜잭션 중 오류가 발생하여 중단되면 실패(Failed) 상태가 됩니다. 그리고 Rollback 연산을 수행한 후, 철회(Aborted) 상태가 되어 트랜잭션이 종료되고 트랜잭션 실행 이전 데이터 상태로 돌아가게 됩니다.
+
+</p>
+</details>
+
+<details>
+<summary>Partial Commited 상태에서 Commited 상태가 되는 과정에 대해 자세히 설명해주세요.</summary>  
+<p>
+
+Commit 요청이 들어오면 Partial Commited 상태가 되는데, 이 때 Commit 연산을 문제 없이 수행하면 Commited 상태가 됩니다. 하지만 Commit 연산 수행 중 오류가 발생하면 Failed 상태로 돌아가게 됩니다.
+
+</p>
+</details>
+
+<details>
+<summary>트랜잭션 격리 수준(transaction isolation level)이란 무엇이며, 왜 필요한가요?</summary>  
+<p>
+
+트랜잭션에서 일관성이 없는 데이터를 허용하도록 하는 수준을 말합니다. 이것이 필요한 이유는 효율적인 Locking 방법이 필요하기 때문입니다. Locking 범위를 높인다면 동시에 수행되는 많은 트랜잭션들을 순차적으로 처리할 것이고, 이는 DB의 성능을 떨어뜨리게 됩니다. 반면 범위를 줄인다면 응답성은 높아지겠지만 잘못된 값이 처리될 수 있습니다. 따라서 트랜잭션 격리 수준을 두어 Locking 수준을 관리합니다.
+
+</p>
+</details>
+
+<details>
+<summary>Isolation level의 종류 중 한 가지를 설명해주시고, 이 때 발생할 수 있는 현상도 함께 설명해주세요.</summary>  
+<p>
+
+- Read Uncommited : Dirty Read, Non-Repeatable Read, Phantom Read
+- Read Committed : Non-Repeatable Read, Phantom Read
+- Repeatable Read : Phantom Read
+- Serializable : 완벽한 일관성 보장
+
+</p>
+</details>
+
+---
+
+<details>
+<summary>
+트랜잭션을 병행 제어없이 병행으로 DB에 동시에 접근 할 경우 발생하는 문제점이 무엇인가요?</summary>  
+<p>
+
+1. 갱신 분실 : 같은 데이터를 공유하여 갱신 할 때 갱신 결과의 일부가 사라짐
+
+2. 모순성 : 동시에 같은 데이터를 갱신할 때, 데이터의 상호 불일치 발생
+
+3. 연쇄 복귀 : 트랜잭션 하나에 문제가 발생하여 롤백시 나머지 트랜잭션도 다같이 롤백됨
+
+</p>
+</details>
+
+<details>
+<summary>
+교착상태가 일어나기위한 네가지 조건을 설명해주세요</summary>  
+<p>
+
+1. Mutual Exclusion : 자원을 공유하지 않음, 자원을 공유한다면 서로 기다릴 필요가 없음.
+
+2. Hold & Wait : 자원을 소유하고 있으면서 다른 자원도 기다리는 상태
+
+3. No Preemption : 자원을 한번 얻으면 완전 종료까지 자원을 놓지 못함, (상대방이 가로채갈 수 없음)
+
+4. Circular Wait : 원형의 형태로 자원을 기다림
+![circularwait](https://user-images.githubusercontent.com/22339356/119250905-3ae2ad80-bbde-11eb-9031-64cfeb36bc43.jpeg)
+
+</p>
+</details>
+
+<details>
+<summary>
+Deadlock Prevention 과 Avoidance 의 차이는 무엇인가요?</summary>  
+<p>
+
+1. Prevention : 네가지 조건 중 한가지를 막아 Deadlock이 일어나지 않게 하는 것(사전 차단)
+
+2. Avoidance : Deadlock의 가능성이 없는 경우에만 (safe state) 에만 자원을 할당
+
++그렇다면 Unsafe state == Deadlock 인가?
+NO, Unsafe state는 Deadlock이 일어 날 수 도 있는 상태를 의미함
+
+</p>
+</details>
+
+<details>
+<summary>
+Deadlock Prevention , Avoidance 그리고 Ignorance 세가지 방법중에 실제 일반적인 OS에서 가장 많이 사용하는 방식은 무엇이라 생각하시나요?</summary>  
+<p>
+
+1. Ignorance
+
+    이유: Deadlock Prevention, Avoidance를 위해서는 많은 비용이 필요함. 따라서 일반적으로 사용하는 OS에서는 Deadlock을 사전에 차단하지 않고 Deadlock발생 시 수동으로 해소시키는 방법을 사용.
+
+2. 로켓 발사나 비행기 운전 시스템과 같이 Deadlock 절대 걸려서는 안되는 정밀하고 중요한 시스템 OS에서만 Prevention이나 Avoidance를 사용함
+
+
+</p>
+</details>
+
+---
+
 ## Reference
 
 > - Database System Concepts - 6th edition
