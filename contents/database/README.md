@@ -487,6 +487,7 @@ Commit 요청이 들어오면 Partial Commited 상태가 되는데, 이 때 Comm
 3. No Preemption : 자원을 한번 얻으면 완전 종료까지 자원을 놓지 못함, (상대방이 가로채갈 수 없음)
 
 4. Circular Wait : 원형의 형태로 자원을 기다림
+![circularwait](https://user-images.githubusercontent.com/22339356/119250905-3ae2ad80-bbde-11eb-9031-64cfeb36bc43.jpeg)
 
 </p>
 </details>
