@@ -236,7 +236,7 @@ Time quantum 설정 시 주의할 점
 - **선점 / 비선점 스케줄링** 모두 가능하다.
   - 선점 방식 : 새로 도착한 프로세스의 우선 순위가 현재 실행 중인 프로세스의 우선 순위보다 높으면 CPU 선점
   - 비선점 방식 : 같은 경우 단순히 새 프로세스를 Ready Queue의 맨 앞에 둔다.
-- 문제점) **indefinit blocking**, **starvation**
+- 문제점) **indefinite blocking**, **starvation**
   - 실행할 준비가 되었으나 CPU를 기다리는 프로세스는 block된 것으로 간주될 수 있다.
   - 우선 순위가 낮은 일부 프로세스는 무기한 대기 상태가 될 수 있다.
 - 해결 방안) **Aging**, **Round-Robin과 결합**
