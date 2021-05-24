@@ -514,7 +514,7 @@ Deadlock Prevention , Avoidance 그리고 Ignorance 세가지 방법중에 실�
 
 1. Ignorance
 
-    이유: 비용 문제, 프로세스를 그냥 죽여 버림
+    이유: Deadlock Prevention, Avoidance를 위해서는 많은 비용이 필요함. 따라서 일반적으로 사용하는 OS에서는 Deadlock을 사전에 차단하지 않고 Deadlock발생 시 수동으로 해소시키는 방법을 사용.
 
 2. 로켓 발사나 비행기 운전 시스템과 같이 Deadlock 절대 걸려서는 안되는 정밀하고 중요한 시스템 OS에서만 Prevention이나 Avoidance를 사용함
 
