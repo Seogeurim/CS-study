@@ -151,6 +151,16 @@ Context-Switching 이란, **CPU 코어를 다른 프로세스로 전환하기 �
 - 멀티 프로그래밍 (multiprogramming) : CPU 사용률을 최대화하기 위해 항상 프로세스를 실행하도록 한다. 어떤 프로세스가 CPU를 사용하다가 I/O 작업 등 CPU를 필요로 하지 않는 순간이 오면 다른 프로세스가 CPU를 사용할 수 있도록 한다.
 - 시분할 (time sharing) : 각 프로그램이 실행되는 동안 사용자들이 상호작용할 수 있도록 프로세스 간 CPU 코어를 자주 전환하는 것이다. CPU가 하나의 프로그램을 수행하는 시간을 매우 짧은 시간(ms)으로 제한하여 프로그램을 번갈아 수행하도록 하면 CPU가 하나인 환경에서도 여러 사용자가 동시에 사용하는 듯한 효과를 가져올 수 있다.
 
+### 프로세스 상태
+
+![image](materials/process-state-diagram.png)
+
+- **New** : 프로세스가 생성됨
+- **Running** : 프로세스의 Instruction이 실행됨
+- **Waiting** : (I/O 작업 완료나 신호 수신과 같은) 이벤트가 발생하기를 기다림
+- **Ready** : 프로세서에 할당되기를 기다림
+- **Terminated** : 프로세스가 실행을 끝냄
+
 ### 스케줄링 큐
 
 #### Ready Queue
@@ -171,7 +181,67 @@ Context-Switching 이란, **CPU 코어를 다른 프로세스로 전환하기 �
 
 ## CPU 스케줄링
 
-> 내용 추가 예정
+CPU 스케줄링은 Ready Queue에 있는 프로세스들을 대상으로 이루어진다.
+
+### 선점 / 비선점 스케줄링 (Preemptive and Non-preemptive Scheduling)
+
+CPU 스케줄링은 다음의 4가지 상황에 대하여 발생할 수 있다.
+
+1. 프로세스가 running → waiting 상태로 전환 (ex. I/O 요청 또는 하위 프로세스 종료를 위한 wait() 호출)
+2. 프로세스가 running → ready 상태로 전환 (ex. interrupt 발생)
+3. 프로세스가 waiting → ready 상태로 전환 (ex. I/O 완료)
+4. 프로세스 종료
+
+스케줄링 시 상황 1, 4에서는 선택권 없이 새 프로세스를 선택해야 한다. 하지만 상황 2, 3에서는 다음과 같은 선택권이 있다.
+
+- **비선점 스케줄링** : CPU가 할당된 어떤 프로세스는 종료 / waiting 상태로 전환하여 CPU를 해제할 때까지 CPU를 유지하고, 다른 프로세스는 그 때까지 CPU를 사용할 수 없다.
+- **선점 스케줄링** : 어떤 프로세스가 CPU를 점유하고 있을 때 다른 프로세스가 CPU를 선점할 수 있다. Windows, macOS, Linux 및 UNIX를 포함한 거의 모든 최신 운영체제는 선점 스케줄링 알고리즘을 사용한다.
+
+### 스케줄링 알고리즘
+
+#### FCFS (First-Come, First-Served) Scheduling
+
+- **비선점 스케줄링**
+- 먼저 CPU를 요청하는 프로세스에 먼저 CPU가 할당된다.
+- FIFO queue 를 사용해 쉽게 구현할 수 있다.
+- 문제점) **convoy effect** : 먼저 들어온 어떤 프로세스의 CPU 처리 시간이 길 경우 다른 모든 프로세스들이 기다림으로서 더 짧은 프로세스가 먼저 진행될 수 있는 경우보다 CPU 및 장치 사용률이 낮아지는 현상
+
+#### SJF (Shortest-Job-First) Scheduling
+
+- **비선점 스케줄링 방식** : CPU burst time이 가장 작은 프로세스에게 먼저 CPU를 할당한다. 만일 CPU burst time이 같다면, FCFS 방식을 적용한다.
+- **선점 스케줄링 방식 (SRTF (Shortest-Remaining-Time-First) Scheduling)** : 새로 들어온 프로세스의 CPU burst time이 현재 실행 중인 프로세스의 남은 burst time 보다 작다면 현재 실행 중인 프로세스를 새로 들어온 프로세스가 선점한다.
+- [Priority Scheduling](#priority-scheduling)의 한 예이다. (우선순위 = CPU burst time)
+- 주어진 프로세스 집합에 대해 **최소 평균 대기 시간**을 제공한다는 점에서 최적의 알고리즘이다. 하지만 CPU burst time을 알 수 있는 방법이 없기 때문에 CPU 스케줄링 수준에서 구현할 수 없다. 이에 대한 한 가지 접근 방식은 SJF 스케줄링을 근사화하는 것이며, 이전 CPU burst time 지수 평균으로 예측할 수 있다.
+- 문제점) **starvation** : CPU 처리 시간이 긴 프로세스는 계속 Ready Queue의 뒤로 밀려나기 때문에 무한정 기다리는 상황이 발생할 수 있다.
+
+#### RR (Round-Robin) Scheduling
+
+- **선점 스케줄링**
+- 각 프로세스는 **time quantum (or time slice)** 이라는 작은 시간 단위(10-100ms)를 갖게 된다. 프로세스는 1 time quantum 동안 스케줄러에 의해 CPU를 할당 받고, 시간이 끝나면 interrupt를 받아 Ready Queue의 tail에 배치된다.
+- Ready Queue는 Circular FIFO queue 형태이다.
+- RR의 평균 대기 시간은 긴 편이다. 하지만 공정하다. `n`개의 프로세스가 있고 time quantum이 `q`일 때, 어떤 프로세스도 `(n-1) x q` 시간 단위 이상 기다리지 않는다.
+
+Time quantum 설정 시 주의할 점
+
+- Time quantum이 너무 크다면 : FCFS와 같아진다.
+- Time quantum이 너무 작다면 : Context Switching이 너무 빈번하게 일어나 overhead가 발생한다.
+
+위와 같이 RR 알고리즘의 성능은 time quantum의 크기에 좌우될 수 있으므로 적절히 선정해야 하며 이는 context-switch time보다 큰 것이 좋지만 또 너무 커서는 안 된다. (경험적으로 CPU burst의 80프로는 time quantum보다 짧은게 좋다고 함)
+
+#### Priority Scheduling
+
+- 정수로 표현된 우선순위가 더 높은 프로세스에게 CPU를 할당하는 스케줄링이다. 우선순위는 내부적/외부적으로 정의할 수 있다.
+  - 내부적 : 시간 제한, 메모리 요구 사항, 열린 파일 수, 평균 I/O burst 대 평균 CPU burst 비율 등 측정 가능한 수량 사용해 계산
+  - 외부적 : 프로세스의 중요성, 컴퓨터 사용에 대해 지불되는 자금의 유형 및 금액, 작업을 후원하는 부서, 기타 정치적 요인 등
+- **선점 / 비선점 스케줄링** 모두 가능하다.
+  - 선점 방식 : 새로 도착한 프로세스의 우선 순위가 현재 실행 중인 프로세스의 우선 순위보다 높으면 CPU 선점
+  - 비선점 방식 : 같은 경우 단순히 새 프로세스를 Ready Queue의 맨 앞에 둔다.
+- 문제점) **indefinite blocking**, **starvation**
+  - 실행할 준비가 되었으나 CPU를 기다리는 프로세스는 block된 것으로 간주될 수 있다.
+  - 우선 순위가 낮은 일부 프로세스는 무기한 대기 상태가 될 수 있다.
+- 해결 방안) **Aging**, **Round-Robin과 결합**
+  - Aging : 오랫동안 대기하는 프로세스의 우선순위를 점진적으로 높이는 방식으로 문제점을 해결할 수 있다. 예를 들어 대기 중인 프로세스의 우선순위를 매초 늘리는 것이다. 
+  - RR+PS : 우선순위가 가장 높은 프로세스를 실행하는데, 동일한 우선순위의 프로세스에 대해서는 Round-Robin 스케줄링을 적용한다.
 
 ---
 
@@ -765,10 +835,12 @@ Page fault
 </details>
 
 <details>
-<summary>리눅스 운영체제에서는 어떤 페이지 교체 알고리즘을 사용할까요? 자신이생각하는이유와 함께 알고리즘을 설명해주세요.</summary>
+<summary>리눅스 운영체제에서는 어떤 페이지 교체 알고리즘을 사용할까요? 자신이 생각하는 이유와 함께 알고리즘을 설명해주세요.</summary>
 <p>
 
-LRU를 사용함. OPR에 근사하고 현실적으로 사용할 순 없기 때문에 최적 알고리즘에 가장 근사한 LRU을 사용할 것이다.
+LRU(Least Recently Used Algorithm)를 사용합니다.  
+OPR(Optimal Page Replacement)이 제일 이상적이지만 OPR은 이론상에서만 가능하고 현실에서는 사용할 수 없기 때문에 OPR에 가장 근사한 LRU을 사용합니다.  
+LRU는 가장 오랫동안 참조되지 않은 페이지를 교체하는 기법으로 오버헤드가 큰 것이 단점이지만 다른 페이지 교체 알고리즘에 비하여 제일 이상적입니다.  
 
 </p>
 </details>
