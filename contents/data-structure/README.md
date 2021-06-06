@@ -116,16 +116,16 @@
 <details>
 <summary>포화 이진트리와 완전이진트리의 차이점은 무엇인가?</summary>
   
-포화 이진 트리(Perfect Binary Tree) : 정 이진트리(Full Binary Tree)에서 모든 단말 노드의 깊이가 같은 이진트리
-완전 이진 트리(Complete Binary Tree) : 마지막 레벨은 노드가 왼쪽에 몰려있고, 마지막 레벨을 제외하면 포화이진트리(Perfect Binary Tree) 구조를 띄고 있음
+1. 포화 이진 트리(Perfect Binary Tree) : 정 이진트리(Full Binary Tree)에서 모든 단말 노드의 깊이가 같은 이진트리
+2. 완전 이진 트리(Complete Binary Tree) : 마지막 레벨은 노드가 왼쪽에 몰려있고, 마지막 레벨을 제외하면 포화이진트리(Perfect Binary Tree) 구조를 띄고 있음
 </details>
 
 <details>
 <summary>트리의 순회에 대해 알고있는것 한가지 말해주세요</summary>
   
-전위 순회(Pre-order)  : __현재 노드 방문__ -> 왼쪽 자식 탐색 -> 오른쪽 자식 탐색
-중위 순회(In-order)   : 왼쪽 자식 탐색 -> __현재 노드 방문__ -> 오른쪽 자식 탐색
-후위 순회(Post-order) : 왼쪽 자식 탐색 -> 오른쪽 자식 탐색 -> __현재노드 방문__
+1. 전위 순회(Pre-order)  : __현재 노드 방문__ -> 왼쪽 자식 탐색 -> 오른쪽 자식 탐색
+2. 중위 순회(In-order)   : 왼쪽 자식 탐색 -> __현재 노드 방문__ -> 오른쪽 자식 탐색
+3. 후위 순회(Post-order) : 왼쪽 자식 탐색 -> 오른쪽 자식 탐색 -> __현재노드 방문__
 </details>
 
 <details>
@@ -150,7 +150,7 @@ A가 B의 부모노드 이면, A의 키값과 B의 키값 사이에는 대소관
 이렇게 힙은 부모와 자식노드 간의 대소관계를 만족하는 `느슨한 정렬 상태`를 가진 자료구조이다. 
 </details>
   
-  <details>
+<details>
 <summary>그림의 힙 구조에서 삭제연산이 일어났을 때 힙의 변화를 서술하세요.</summary>
     
 <img width="491" alt="스크린샷 2021-06-01 오전 11 47 16" src="https://user-images.githubusercontent.com/22493971/120898116-7b253f80-c664-11eb-9f84-39d795b36bff.png">
