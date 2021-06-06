@@ -76,7 +76,7 @@
 <details>
 <summary>A-B-C-D 순서로 연결된 연결 리스트가 있다. C다음에 F노드를 삽입할때의 과정을 설명해라.</summary>
   
-1.F의 next node를 C의 next node인 D로 설정한다.
+1. F의 next node를 C의 next node인 D로 설정한다.
 `A-B-C-D`
 `F-D`
 
