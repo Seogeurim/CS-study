@@ -61,15 +61,15 @@
 </details>
 
 <details>
-<summary>Queue와 Dequeue의 차이점은 무엇일까요?</summary>
+<summary>큐와 덱의 차이점은 무엇일까요?</summary>
   
-`Queue` 는 front에서만 output이 발생하고 rear에서만 input이 발생하는 입출력의 방향이 제한되어 있는 자료구조이다.
-  반면 `Dequeue` 는 양방향에서 입출력이 가능하다. 
+`큐` 는 front에서만 output이 발생하고 rear에서만 input이 발생하는 입출력의 방향이 제한되어 있는 자료구조이다.
+  반면 `덱` 은 양방향에서 입출력이 가능하다. 
 </details>
 
 
 <details>
-<summary>Queue보다 Dequeue를 사용했을 때 더 효율적인 경우가 있을까요?</summary>
+<summary>큐보다 덱을 사용했을 때 더 효율적인 경우가 있을까요?</summary>
   
 스케줄링 알고리즘을 수행할 때 스케줄링이 복잡해질수록 덱이 더 효율적으로 동작한다.  
 즉, 우선순위를 관리하는 데 있어 스택과 큐에 비해 이점을 갖는다.
@@ -78,24 +78,26 @@
 </details>
 
 <details>
-<summary>Heap이란 무엇일까요?</summary>
+<summary>힙이란 무엇일까요?</summary>
   
 힙은 최댓값 및 최솟값을 찾아내는 연산을 빠르게 하기 위해 고안된 완전이진트리를 기본으로 한 자료구조로서 다음과 같은 힙 속성을 만족한다.  
 A가 B의 부모노드 이면, A의 키값과 B의 키값 사이에는 대소관계가 성립한다.
-Max-Heap의 경우 `A > B`를 만족하고,  
-Min-Heap의 경우 `A < B`를 만족한다.
+최대 힙의 경우 `A > B`를 만족하고,  
+최소 힙의 경우 `A < B`를 만족한다.
                      
-이렇게 Heap은 부모와 자식노드 간의 대소관계를 만족하는 `느슨한 정렬 상태`를 가진 자료구조이다. 
+이렇게 힙은 부모와 자식노드 간의 대소관계를 만족하는 `느슨한 정렬 상태`를 가진 자료구조이다. 
 </details>
   
   <details>
-<summary>그림의 Heap구조에서 삭제연산이 일어났을 때 Heap의 변화를 서술하세요.</summary>
+<summary>그림의 힙 구조에서 삭제연산이 일어났을 때 힙의 변화를 서술하세요.</summary>
     
 <img width="491" alt="스크린샷 2021-06-01 오전 11 47 16" src="https://user-images.githubusercontent.com/22493971/120898116-7b253f80-c664-11eb-9f84-39d795b36bff.png">
 
 1. 루트 노드 값을 삭제한다. (44 삭제)  
 2. 가장 마지막 리프노드를 루트 노드로 이동한다. (14가 루트 노드로 이동)  
 3. Heapify 진행  
+> Heapify란 루트노드부터 시작하여 힙의 구조를 만족할 때까지 부모/자식 노드 간 Swap연산을 하며 밑으로 내려가는 연산을 의미한다. 
+    
      a. 현재 노드의 자식노드가 현재 노드보다 클 경우 SWAP한다. (14<->42) (14<->33)  
 
 <img width="491" alt="ㅋㅋ" src="https://user-images.githubusercontent.com/22493971/120898448-defc3800-c665-11eb-95f1-76d75ad804fd.png">
