@@ -384,7 +384,7 @@ public class SubsetTest {
 2. 각 노드가 유망(promising)한지를 점검한다.
 3. 만일 그 노드가 유망(promising)하지 않으면, 그 노드의 부모로 되돌아가(backtracking) 다음 자식 노드로의 검색을 계속한다.
 
-백트래킹을 사용하면 가지치기(pruning)를 통해 불필요한 경로를 차단하여 완전탐색(DFS)보다 경우의 수를 훨씬 줄일 수 있다. 대표적으로 N-Queen 문제가 백트래킹의 좋은 예시이다.
+백트래킹을 사용하면 **가지치기(pruning)** 를 통해 불필요한 경로를 차단하여 완전탐색(DFS)보다 경우의 수를 훨씬 줄일 수 있다. 대표적으로 N-Queen 문제가 백트래킹의 좋은 예시이다.
 
 ---
 
@@ -435,3 +435,7 @@ public class SubsetTest {
 ---
 
 ## 동적 계획법 (Dynamic Programming)
+
+동적 계획법은 주어진 문제를 해결하기 위해 여러 개의 하위 문제로 나누어 푼 다음 결합하여 답을 찾는 방법이다. 문제 해결을 위해서는 다양한 방법으로 하위 문제로 나누어 보고 주어진 시간 복잡도 내에서 수행이 가능한 최적의 **점화식**을 찾는 것이 핵심이다.
+
+동적 계획법을 적용한 대표적인 문제로는 배낭 짐싸기 문제(Knapsack Problem), 최장증가수열(LIS, Longest Increasing Subsequence), 외판원 순회 문제(TSP, Traveling Salesman Problem) 등이 있다. 이 밖에도 memoization 및 점화식을 통해 다양한 문제를 훨씬 효율적인 방식으로 해결할 수 있다.
