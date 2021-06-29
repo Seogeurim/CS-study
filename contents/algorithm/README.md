@@ -190,3 +190,29 @@
 
 </p>
 </details>
+
+---
+
+<!-- 문자열 -->
+
+<details>
+<summary>질문을 입력하세요.</summary>
+<p>
+
+답변을 입력하세요.
+
+</p>
+</details>
+
+---
+
+<!-- 투포인터 -->
+
+<details>
+<summary>질문을 입력하세요.</summary>
+<p>
+
+답변을 입력하세요.
+
+</p>
+</details>
