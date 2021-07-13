@@ -170,6 +170,22 @@ class Client(object):
 
 1. MVC도 하나의 패턴인데 왜 컴파운드 패턴이라고 불리는가?
 > 컴파운드 패턴은 더 큰 문제를 해결하기 위해 여러 패턴을 합친 것이다. MVC 패턴은 가장 많이 쓰이는 컴파운드 패턴이다. 안정적이며 많이 쓰이기 때문에 개별적인 패턴처럼 취급된다.
+> <details>
+> <summary> MVC에는 어떤 패턴들이 포함되어 있는가? </summary>
+> <p>
+> 출처 : https://sgc109.github.io/2020/07/18/compound-pattern-feat-mvc/  </br></br>
+> MVC 는 Model-View-Controller 의 약자로서, 역할에 따라 3개의 컴포넌트로 분리하고 여러 디자인 패턴을 적용하여 재사용성을 높인 대표적인 컴파운드 패턴의 예다.  </br>
+> 그렇다면 MVC 패턴에서 사용된다는 여러 디자인 패턴은 대체 무엇일까?  </br>
+> 전통적인 MVC 패턴에서는 다음 3가지 패턴이 사용된다.  </br></br>
+> - 옵저버(Observer) 패턴  </br>
+> Model 의 상태가 변경 되었을 때 Controller, 혹은 View 에게 이 사실을 알리는데 사용된다.  </br>
+> - 컴포지트(Composite) 패턴  </br>
+> View 를 구성하는 컴포넌트들은 계층 구조를 이룬다. (e.g. Java Swing 의 JFrame/JLabel 등, Android 의 View/ViewGroup, HTML 의 DOM)  </br>
+> - 스트래티지(Strategy) 패턴  </br>
+> Controller 의 핵심 기능을 인터페이스로 분리하여 View 가 이 인터페이스를 통해 Controller 를 구성(Composition) 한다. 그렇기 때문에 View 는 Controller 를 갈아 끼우며 기능을 변경할 수 있다.  </br>
+> - 또한, 필요에 따라 어댑터(Adapter) 패턴 을 함께 사용할 수도 있다.
+> </p>
+> </details>
 
 2. MVC 웹사이트에서만 쓰이는가?
 > 그렇지 않다. 웹사이트가 MVC를 설명하기 가장 좋은 예다. MVC 패턴은 GUI기반 애플리케이션이나 프로그램 내 요소 간의 높은 독립성이 요구되는 경우 적합하다. 블로그나 영화 데이터베이스 애플리케이션, 비디오 스트리밍 애플리케이션 등이 MVC가 적합한 전형적인 예다. 하지만 MVC가 아무리 좋다 해도 랜딩 페이지나 마케팅 콘텐츠, 단일 페이지 애플리케이션 등에 쓰는 것은 적합하지 않다.
