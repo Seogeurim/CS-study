@@ -173,17 +173,14 @@ class Client(object):
 > <details>
 > <summary> MVC에는 어떤 패턴들이 포함되어 있는가? </summary>
 > <p>
-> 출처 : https://sgc109.github.io/2020/07/18/compound-pattern-feat-mvc/  </br></br>
-> MVC 는 Model-View-Controller 의 약자로서, 역할에 따라 3개의 컴포넌트로 분리하고 여러 디자인 패턴을 적용하여 재사용성을 높인 대표적인 컴파운드 패턴의 예다.  </br>
-> 그렇다면 MVC 패턴에서 사용된다는 여러 디자인 패턴은 대체 무엇일까?  </br>
-> 전통적인 MVC 패턴에서는 다음 3가지 패턴이 사용된다.  </br></br>
-> - 옵저버(Observer) 패턴  </br>
-> Model 의 상태가 변경 되었을 때 Controller, 혹은 View 에게 이 사실을 알리는데 사용된다.  </br>
+> </br> - 옵저버(Observer) 패턴  </br>
+> Model 의 상태가 변경 되었을 때 Controller, 혹은 View 에게 이 사실을 알리는데 사용된다.  </br></br>
 > - 컴포지트(Composite) 패턴  </br>
-> View 를 구성하는 컴포넌트들은 계층 구조를 이룬다. (e.g. Java Swing 의 JFrame/JLabel 등, Android 의 View/ViewGroup, HTML 의 DOM)  </br>
+> View 를 구성하는 컴포넌트들은 계층 구조를 이룬다. (e.g. Java Swing 의 JFrame/JLabel 등, Android 의 View/ViewGroup, HTML 의 DOM)  </br></br>
 > - 스트래티지(Strategy) 패턴  </br>
-> Controller 의 핵심 기능을 인터페이스로 분리하여 View 가 이 인터페이스를 통해 Controller 를 구성(Composition) 한다. 그렇기 때문에 View 는 Controller 를 갈아 끼우며 기능을 변경할 수 있다.  </br>
-> - 또한, 필요에 따라 어댑터(Adapter) 패턴 을 함께 사용할 수도 있다.
+> Controller 의 핵심 기능을 인터페이스로 분리하여 View 가 이 인터페이스를 통해 Controller 를 구성(Composition) 한다. 그렇기 때문에 View 는 Controller 를 갈아 끼우며 기능을 변경할 수 있다.  </br></br>
+> - 또한, 필요에 따라 어댑터(Adapter) 패턴 을 함께 사용할 수도 있다. </br></br>
+> 출처 : <a href="https://sgc109.github.io/2020/07/18/compound-pattern-feat-mvc/"> Sungho's Blog </a>
 > </p>
 > </details>
 
