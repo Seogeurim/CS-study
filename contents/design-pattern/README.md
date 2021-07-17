@@ -10,6 +10,8 @@
 ### 아키텍처 패턴
 - [MVC (Model-View-Controller)](mvc-python.md)
 
+#### [부록] 피해야 하는 개발 습관
+- [안티 패턴](anti-pattern.md)
 ---
 
 ## 질의응답
