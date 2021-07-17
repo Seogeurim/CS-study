@@ -242,7 +242,7 @@ public:
     }
 ```
 
-Move Semantics에 대한 자세한 정보는 (microsoft 공식 문서)[https://docs.microsoft.com/ko-kr/cpp/cpp/move-constructors-and-move-assignment-operators-cpp?view=msvc-160], (stackoverflow)[https://stackoverflow.com/questions/3106110/what-is-move-semantics]을 참조하면 더 많은 정보를 얻을 수 있다.
+Move Semantics에 대한 자세한 정보는 [microsoft 공식 문서](https://docs.microsoft.com/ko-kr/cpp/cpp/move-constructors-and-move-assignment-operators-cpp?view=msvc-160), [stackoverflow](https://stackoverflow.com/questions/3106110/what-is-move-semantics)을 참조하면 더 많은 정보를 얻을 수 있다.
 
 ## Array
 
