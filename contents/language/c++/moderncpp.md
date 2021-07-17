@@ -223,7 +223,7 @@ int tmain(int argc, _TCHAR* argv[])
 str1와 str2를 swap해야 하는 과정을 거칠 때 우리는 임시 변수(string tmp)를 만들어 임시 변수를 이용하여 값을 교체하는 과정을 거쳐왔다. 하지만 이 과정에서 복사가 세번 일어나게 된다. 우리는 굳이 문자열 내용을 복사할 필요 없이 string_content의 주소값만 서로 바꿔주면 되는것을 알고 있다. 좌측값이 우측값으로 취급될 수 있게 바꿔주는 함수가 없을까?
 std::move를 사용하자!
 
-** Move Semantics **
+**Move Semantics**
 ```cpp
 #include <cstring>
 #include <algorithm>
