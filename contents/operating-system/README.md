@@ -489,7 +489,10 @@ CPU에서 명령어를 수행하며 매번 캐시 메모리를 참조하게 되�
 3. 네트워크 트래픽을 사용해야 해서 Local Cache보다 느리다.
 4. 데이터를 분산하여 저장할 수 있다.
 
+### Reference
 - 작성자 권혁진 | [[CS] 캐시 메모리](https://nukw0n-dev.tistory.com/9)
+- https://j0free.tistory.com/3
+- 2021 시나공 정보처리기사 필기
 
 ---
 
