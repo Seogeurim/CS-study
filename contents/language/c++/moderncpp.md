@@ -112,7 +112,12 @@ std::find_if(container.begin(), container.end(),
 [captures](parameters) -> return type { body }
 
 /*
-* captures: comma(,)로 구분된 캡처들이 들어갑니다.
+* captures: comma(,)로 구분된 캡처들이 들어갑니다. 캡쳐 부가 설명을 아래에 작성했습니다.
+* [] : 아무 외부변수도 사용하지 않음
+* [=] : 모든 외부변수의 값을 전달받아서 캡쳐한다. value 만 사용하고, 외부변수의 값을 바꾸지는 못함.
+* [&] : 모든 외부변수를 참조로 전달받아서 캡쳐한다. value도 사용하고, 외부변수의 값도 바꿀 수 있다. 
+* [A] : 외부변수 A를 값으로 전달받아서 캡쳐한다. 단 A의 value는 사용할 수 있으나 값을 바꿀 수 없다.
+* [&A] : 외부변수 A를 참조로 전달받아서 캡쳐한다. value도 사용하고, 값도 바꿀 수 있다.
 * parameters: 함수의 인자들이 들어갑니다.
 * return type: 함수의 반환형입니다.
 * body: 함수의 몸통입니다.
