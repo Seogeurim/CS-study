@@ -10,7 +10,7 @@
 
 출처: [wikipedia: 옵저버 패턴](https://ko.wikipedia.org/wiki/%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4)
 
- 이 말을 좀 더 구체적으로 풀어서 얘기하자면 Observer패턴을 사용하기 위한 객체 및 인터페이스로 **Observavle**(주체) 과 **Observer** 두 가지가 존재한다. 여기서 Observable 객체는 상태가 변화 되는 주체이고 이러한 주체를 관찰하고 있는 것이 Observer 이다. Observable은 하나 또는 여러 Observer를 등록하거나 해제할 수 있고 어떠한 상태 변화시 Observer들에 알릴 수 있다. 각각의 Observer들은 이러한 상태변화에 대해서 전달 받으면 각각의 알맞는 행동을 수행한다. 
+ 이 말을 좀 더 구체적으로 풀어서 얘기하자면 Observer패턴을 사용하기 위한 객체 및 인터페이스로 **Observable**(주체) 과 **Observer** 두 가지가 존재한다. 여기서 Observable 객체는 상태가 변화 되는 주체이고 이러한 주체를 관찰하고 있는 것이 Observer 이다. Observable은 하나 또는 여러 Observer를 등록하거나 해제할 수 있고 어떠한 상태 변화시 Observer들에 알릴 수 있다. 각각의 Observer들은 이러한 상태변화에 대해서 전달 받으면 각각의 알맞는 행동을 수행한다. 
 
 
 
@@ -35,14 +35,15 @@
 
  Observer 패턴을 이용한 Netflix구독 예제이다.
 
- NerflixUser(Observer)는 Netflix(Observable)에 영화 또는 애니메이션이 업데이트 되는 것을 관찰 하고 있다. 만약 영화 또는 애니메이션이 업데이트 되면 Netflix(Observable)은 자신을 구독하고 있는 NerflixUser(Observer)에게 알려주고 NerflixUser(Observer)는 영화이냐 애니메이션이냐에 따라 각기 다른 로직을 수행하게 된다.
+ NetflixUser(Observer)는 Netflix(Observable)에 영화 또는 애니메이션이 업데이트 되는 것을 관찰 하고 있다. 만약 영화 또는 애니메이션이 업데이트 되면 Netflix(Observable)은 자신을 구독하고 있는 NetflixUser(Observer)에게 알려주고 NetflixUser(Observer)는 영화이냐 애니메이션이냐에 따라 각기 다른 로직을 수행하게 된다.
 
 ### Netflix Class (Observable)
 
 ```java
 public class Netflix implements Observable {
-		// 구독하고 있는 user 리스트
-	  ArrayList<NetflixUser> userList;
+
+	// 구독하고 있는 user 리스트
+    ArrayList<NetflixUser> userList;
 
     public Netflix() {
         this.userList = new ArrayList<NetflixUser>();
