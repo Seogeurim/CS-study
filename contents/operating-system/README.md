@@ -493,7 +493,6 @@ Example
 #### [FIFO 페이지 교체] 
 ```First-In-First-Out Page Replacement```
 
-<br/>
 물리메모리에 들어온 페이지 순서대로 페이지 교체 시점에 먼저 나가게 된다.
 
 * 장점
