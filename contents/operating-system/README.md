@@ -527,9 +527,7 @@ Example
 #### [LRU 페이지 교체]
 ```Least-Recently-Used Page Replacement```
 
-<br/>
 최적 알고리즘의 근사 알고리즘. 가장 오랫동안 사용되지 않은 페이지를 선택하여 교체한다.
-
 <br/>
 
 * 특징
@@ -540,9 +538,7 @@ Example
 #### [LFU 페이지 교체]
 ```Least-Frequently-Used Page Replacement```
 
-<br/>
 참조 횟수가 가장 적은 페이지를 교체한다. 활발하게 사용되는 페이지는 참조 횟수가 많아질 거라는 가정에서 만들어졌다.
-
 <br/>
 
 * 특징
