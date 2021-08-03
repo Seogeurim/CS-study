@@ -142,17 +142,17 @@ void main( )
     v2.push_back(3);
 
     for(int i = 0 ; i < v1.size() ; i++)
-        cout << v1[i] << " ";
+        cout << v1[i] << " "; // 10, 20, 30
     cout << endl;
 
     for(int i = 0 ; i < v2.size() ; i++)
-        cout << v2[i] << " ";
+        cout << v2[i] << " "; // 1, 2, 3
     cout << endl;
 
     transform(v1.begin(), v1.end(), v2.begin(), v1.begin(), plus<int>());
 
     for(int i = 0 ; i < v1.size() ; i++)
-        cout << v1[i] << " ";
+        cout << v1[i] << " "; // 11, 22, 33
     cout << endl;
 }
 ```
