@@ -161,6 +161,7 @@
 아래의 자료에서 자세한 설명과 코드를 볼 수 있다.
 
 - 작성자 이세명 | [Agile Software Development](./materials/CS_(Agile).pdf)
+- 작성자 정희재 | [eXtreme Programming(XP)](./eXtremeProgramming.md)
 
 ---
 
