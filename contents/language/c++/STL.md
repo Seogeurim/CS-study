@@ -99,7 +99,7 @@ partition()
 
 ## STL 함수자
 
-STL 함수자란 함수 객체와 같은 말로, operator() 연산자를 오버로딩한 클래스 객체
+STL 함수자란 함수 객체와 같은 말로, operator() 연산자를 오버로딩한 클래스 객체이다.
 우리가 C++을 사용할 때 
 `sort(v.begin(), v.end(), less<int>());` 의 세번째 인자 less, greater를 사용했던 기억이 있는가?   
 이것이 바로 함수처럼 동작하는 객체인 함수자이다.
