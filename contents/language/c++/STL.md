@@ -20,7 +20,8 @@
 
 ## STL
 
-STL은 Standard Template Library로 C++를 위한 표준 라이브러리로서 컨테이너, 반복자, 알고리즘 그리고 함수자라고 불리는 네가지의 구성요소를 제공한다. (C++ : Black Book)
+STL은 Standard Template Library로 C++를 위한 표준 라이브러리로서 컨테이너, 반복자, 알고리즘 그리고 함수자라고 불리는 네가지의 구성요소를 제공한다. (C++ : Black Book)  
+C++에서 vector, queue 등 다양한 라이브러리들을 #include 하여 사용한 적이 있는가? 이것들이 STL의 일부이다.
 
 ### 우리가 왜 STL을 배워야 하는가?
 
@@ -218,15 +219,38 @@ int main(void){
 ```
 
 ### 부정자 어댑터
-
+    
+[ref](http://www.cplusplus.com/reference/functional/not1/)
+    
 * not1  
 인자로 전달된 단항 조건자의 의미를 반대로 변환
+
+> 5의 배수인지 확인하는 isMulti5 함수를 만들었다고 가정했을 때 not1(isMulti5()); 을 사용하면 5의 배수가 아닌것만 확인하게 된다.
+    
 * not2  
 인자로 전달된 이항 조건자의 의미를 반대로 변환
 
+> ex) `sort(v.begin(), v.end(), compare());`을 오름차순이라고 가정했을 때 `sort(v.begin(), v.end(), not2(compare())); 은 내림차순이 된다.
+    
 ### 함수 포인터 어댑터
-
+함수 포인터는 객체가 아니므로 어댑터를 적용할 수 없는데 아래의 함수 포인터 어댑터를 사용함으로써 함수 포인터를 객체로 포장하게 되고 이 후 바인더, 부정자 등의 어댑터를 적용할 수 있다.
+    
 * ptr_fun  
 단항 함수를 함수 어댑터처럼 사용할 수 있도록 지원
-* ptr_fun  
-이항 함수를 함수 어댑터처럼 사용할 수 있도록 지원
+    
+```cpp
+bool IsMultiFunc(int a,int b)
+{
+     return (a % b == 0);
+}
+void main(){
+     int ari[]={1,2,3,4,5,6,7,8,9,10};
+     vector<int> vi(&ari[0],&ari[10]);
+     vector<int>::iterator it;
+     for (it=vi.begin();;it++) {
+          it=find_if(it, vi.end(), bind2nd(ptr_fun(IsMultiFunc),3));
+          if (it==vi.end()) break;
+          cout << *it << "이(가) 있다" << endl;
+     }
+}
+```
