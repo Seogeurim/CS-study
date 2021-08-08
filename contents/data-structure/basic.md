@@ -222,7 +222,7 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ### Tree 구현
 
-- [List를 사용해 구현한 Tree (Typescript로 작성됨)]('./code/Tree/Tree.ts')
+- [List를 사용해 구현한 Tree (Typescript로 작성됨)](./code/Tree/Tree.ts)
 
 ### Tree 시간 복잡도 & 공간 복잡도
 
