@@ -82,6 +82,22 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 - **맨 앞/뒤에** 데이터 삽입/삭제하기 : O(1) (SinglyLinkedList의 경우 맨 뒤의 데이터 삭제 연산은 O(n))
 - **중간의 원하는 위치에** 데이터 삽입/삭제하기 : O(n) _(원하는 원소까지 데이터를 조회하는 과정이 있으므로 O(n) + O(1))_
 
+> #### Array와 Linked List의 차이
+> - 데이터 접근 속도
+>   - Array는 인덱스를 통한 Random Access를 지원하므로 시간 복잡도 O(1)로 빠르게 찾을 수 있다.
+>   - LinkedList는 순차 접근 방식을 사용하므로 시간 복잡도 O(N)이 걸린다.
+> - 데이터의 삽입/삭제 속도
+>   - Array는 데이터를 중간이나 맨 앞에 삽입/삭제하는 경우 shift가 필요하므로 데이터가 많을수록 비효율적이다.
+>   - LinkedList는 중간 삽입/삭제는 똑같이 O(N)의 시간 복잡도를 갖지만, 맨 앞 또는 뒤에 삽입할 경우 O(1)의 시간복잡도를 갖는다.
+>   - 다만 LinkedList는 데이터 삽입/삭제마다 메모리 할당/해제가 일어나므로 시간복잡도는 빠를지라도 시스템 콜(System Call)에 있어서 Array보다 더 시간이 걸린다.
+> - 메모리 할당
+>   - Array는 정적 메모리 할당이 이루어진다. (Compile time)
+>   - LinkedList는 동적 메모리 할당이 이루어진다. (Runtime)
+>   - Array의 경우 데이터 삽입 시 모든 공간이 다 차버렸다면 새로운 메모리 공간이 필요하지만 LinkedList는 동적으로 할당받을 수 있다.
+>
+> 데이터 삽입/삭제가 빈번하다면 LinkedList를 사용하는 것이 좋고, 데이터 접근 속도가 중요하다면 Array를 사용하는 것이 좋다.
+
+
 ---
 
 ## Stack (스택)
@@ -94,20 +110,42 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 - `Top` : 스택에 데이터가 삽입될 위치
 
-### Stack 주요 명령어
+### Stack 주요 연산
+
+- `push` : 스택의 top에 원소 삽입
+- `pop` : 스택의 top에 있는 원소 삭제 및 반환
+- `peek` : 스택의 top에 있는 원소 반환
 
 ### Stack 구현
 
+- [Array를 통해 구현한 Stack](./code/Stack/ArrayStack.java)
+- [Singly Linked List를 통해 구현한 Stack](./code/Stack/LinkedStack.java)
+- 위 코드 실행 : [StackExample.java](./code/Stack/StackExample.java)
+
 ### Stack 시간 복잡도 & 공간 복잡도
+
+- 데이터 삽입/삭제 : O(1)
+- top 데이터 조회 : O(1)
+- 특정 데이터 조회 : O(n)
 
 ### Stack 활용
 
 - 시스템 스택(System Stack) / 실행시간 스택(Runtime stack) : 프로그램의 함수 호출과 복귀에 따른 실행 순서 관리
 - 인터럽트 루틴 처리
+- 웹 브라우저 방문 기록 관리 (뒤로가기)
+- 실행 취소 (undo)
 - 수식의 후위 표기법(Postfix Notation)
 - 수식의 괄호식 검사
-- 웹 브라우저 방문 기록 (뒤로가기)
-- 실행 취소 (undo)
+- 계산기 검사
+- 깊이 우선 탐색(DFS, Depth-First Search)
+
+> **프로그램의 함수 호출과 복귀에 따른 실행 순서 관리는 다음과 같은 과정을 가진다.**
+> 
+> 1. 함수 호출이 발생하면 스택 프레임(stack frame)에 지역변수, 매개변수, 수행 후 복귀할 주소 등의 정보를 저장하여 시스템 스택에 삽입한다.
+> 2. 함수의 실행이 끝나면 시스템 스택의 top에 있는 stack frame 원소를 pop하고, frame에 저장되어 있던 복귀 주소를 확인하고 복귀한다.
+> 3. 함수 호출 - 복귀에 따라 이 과정을 반복하고, 전체 프로그램 수행이 종료되면 시스템 스택은 공백 스택이 된다.
+> 
+> 함수 호출은 가장 마지막에 호출된 함수가 가장 먼저 실행을 완료하고 복귀하는 후입선출 구조이기 때문에, 스택을 이용해 관리한다.
 
 ---
 
@@ -122,21 +160,36 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 - `Front` / `Head` : 큐에서 데이터가 삭제될 위치
 - `Rear` / `Tail` : 큐에서 마지막 데이터가 삽입된 위치
 
-### Queue 주요 명령어
+### Queue 주요 연산
+
+- `enQueue` : 큐의 rear에 원소 삽입
+- `deQueue` : 큐의 front에 있는 원소 삭제 및 반환
 
 ### Queue 구현
 
+- [Array를 통해 구현한 Queue](./code/Queue/ArrayQueue.java)
+- [Singly Linked List를 통해 구현한 Queue](./code/Queue/LinkedQueue.java)
+- 위 코드 실행 : [QueueExample.java](./code/Queue/QueueExample.java)
+
+> Java에서 API로 Queue를 사용할 때, java.util.Queue는 인터페이스이며, 그 구현체로 java.util.LinkedList를 사용한다. 
+> 따라서 `Queue<String> queue = new LinkedList<String>()`로 선언해야 한다.
+
 ### Queue 시간 복잡도 & 공간 복잡도
+
+- 데이터 삽입/삭제 : O(1)
+- front 데이터 조회 : O(1)
+- 특정 데이터 조회 : O(n)
 
 ### Queue 활용
 
 - 프로세스 레디 큐
 - 스케쥴링
-- 네트워크 패킷 전송시 필요한 버퍼 대기 큐
 - 캐시(Cache) 구현
+- 네트워크 패킷 전송시 필요한 버퍼 대기 큐
 - javascript의 Event Loop 관리 (비동기 처리)
-- 너비 우선 탐색(BFS, Breadth-First Search)
+- 키보드 버퍼
 - 프린터의 출력 처리
+- 너비 우선 탐색(BFS, Breadth-First Search)
 
 ---
 
@@ -169,9 +222,24 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ### Tree 구현
 
+- [List를 사용해 구현한 Tree (Typescript로 작성됨)](./code/Tree/Tree.ts)
+
 ### Tree 시간 복잡도 & 공간 복잡도
 
+- 노드 삽입: O(1)
+- 노드 삭제: O(1)
+- 노드 검색: O(N)
+
+> 노드 삭제의 경우, 언어와 구현에 따라 시간복잡도가 달라질 수 있음.
+> 자바스크립트의 경우 가비지 콜렉션에 의해 참조를 삭제하는 방식으로 O(1)에 구현할 수 있음.
+
 ### Tree 활용
+
+- HTML DOM 트리
+- 파일 시스템
+- DBMS
+- 검색 엔진
+- 트라이 알고리즘
 
 ---
 
@@ -203,4 +271,87 @@ String[] name = {"Stacy", "Tracy", "Dorothy"};
 
 ## Graph (그래프)
 
-### Graph 용어
+## 그래프 정의
+
+현실세계의 사물이나 개념 간의 **연결 관계**를 수학적 모델로 단순화하여 표현한 것
+
+- V : 정점 (Vertex / Node)
+- E : 간선 (Edge / Link / Arc)
+- 그래프 G = (V, E)
+
+## 그래프 용어
+
+1. **정점, 노드 (Vertex, Node)**
+2. **간선 (Edge)**
+    - 무향 간선 (Undirected Edge) : 방향이 존재하지 않는 간선, 양방향
+    - 유향 간선 (Directed Edge) : 방향이 존재하는 간선
+3. **인접 (Adjacent)** : (정점 관점) 두 정점 A, B 사이에 간선이 존재한다면 A, B는 인접한다.
+4. **부속 (Incident)** : (간선 관점) 두 정점 A, B 사이에 간선 e가 존재한다면 간선 e는 정점 A, B에 부속한다.
+5. **차수 (Degree)** : 한 정점에 연결된 간선의 수
+    - (방향 그래프) in-degree : 정점에 들어오는 간선의 수, out-degree : 나가는 간선의 수
+6. **자기 간선과 다중 간선**
+    - 자기 간선 (Self-loop) : 자신으로 다시 돌아오는 간선
+    - 다중 간선 (Multiple / Parallel edges) : 두 개 이상의 간선이 똑같은 두 정점에 부속할 때
+7. **경로 (Path)** : 정점 + 간선이 교대로 구성된 sequence
+    - 단순 경로 (Simple Path) : 같은 정점을 두 번 이상 가지 않는 경로
+8. **회로 (Cycle)** : A 정점에서 출발했을 때 다시 A 정점으로 돌아오는 경로
+    - 단순 회로 (Simple Cycle) : 같은 정점을 두 번 이상 가지 않는 싸이클
+9. **연결됨 (Connected)** : 정점 A에서 정점 B로의 경로가 존재할 때 A와 B는 연결되어 있다.
+
+## 그래프 종류
+
+1. **무향 그래프 (Undirected Graph)** : 무방향 간선으로 이루어진 그래프
+2. **유향 그래프 (Directed Graph)** : 방향 간선으로 이루어진 그래프
+3. **가중치 그래프 (Weighted Graph)** : 가중치(비용)를 갖는 간선들로 이루어진 그래프
+4. **정규 그래프 (Regular Graph)** : 모든 정점이 동일한 차수를 가지는 그래프
+5. **완전 그래프 (Complete Graph)** : 모든 정점이 서로 인접해있는 그래프, 완전 그래프는 정규 그래프
+6. **연결 그래프 (Connected Graph)** : 모든 정점이 연결되어 있어서 모든 정점끼리 경로가 존재하는 그래프
+7. **부분 그래프** : 어떤 그래프의 부분 부분
+8. **트리 그래프** : 싸이클을 가지지 않는 연결 그래프, 모든 정점에 대해서 경로가 정확히 1개 존재한다.
+
+## 그래프 표현
+
+그래프의 표현 방식에는 **간선 리스트, 인접 행렬, 인접 리스트** 3가지 방식이 있다.
+
+> 정점 개수 : V개, 간선 개수 : E개
+
+### 간선 리스트 (Edge List)
+
+- E x 2 (or E x 3) 이차원 배열 A에 정보를 저장한다.
+- 두 정점 x, y 를 연결하는 간선 k에 대해서 A[k][0] = x, A[k][1] = y
+- 가중치 그래프의 경우 A[k][2] 에 가중치 정보를 저장한다.
+
+![간선리스트](./img/그래프.001.jpeg)
+
+
+### 인접 행렬 (Adjacency Matrix)
+
+- V x V 이차원 배열 A에 정보를 저장한다.
+- Vi, Vj를 연결하는 간선이 존재한다면 A[i][j] = 1, 존재하지 않는다면 A[i][j] = 0
+- 가중치 그래프의 경우 1 대신 가중치 정보를 저장한다.
+
+> 메모리 복잡도가 V<sup>2</sup> 이기 때문에 V의 값이 클 경우 쓰지 않는 것이 좋다.
+> 100 이하의 값일 때 사용하는 것이 좋다.
+
+![인접행렬](./img/그래프.002.jpeg)
+
+### 인접 리스트 (Adjacent List)
+
+- V 개의 Linked List로 그래프 정보를 저장한다.
+- 가중치 그래프의 경우 (정점 정보, 가중치 정보)를 함께 저장한다. (C++ : pair, Java : class)
+
+![인접리스트](./img/그래프.003.jpeg)
+
+### 그래프 표현 방식 비교
+
+> 정점 개수 : V개, 간선 개수 : E개
+
+|       | 간선 리스트 |    인접 행렬      |    인접 리스트    |
+| :---: | :------: | :-------------: | :------------: |
+|  공간  |    E     |  V<sup>2</sup>  |     V + E      |
+|  정점 Va 의 부속 간선  |    E     |     V     |   Va 차수   |
+| 정점 Va, Vb 의 인접 여부 |    E     |     1     | min(Va 차수, Vb 차수) |
+|  정점 삽입  |    1     |  V<sup>2</sup>  |     1     |
+|  간선 삽입  |    1     |    1    |     1     |
+
+

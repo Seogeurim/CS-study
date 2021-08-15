@@ -169,7 +169,7 @@ void bubbleSort(int[] arr) {
 합병정렬은 문제를 분리하고 각각을 해결한 후 다시 합치는 Divide & Concuer 방식을 사용한다.
 
 - Divide(분할) : 초기 배열을 2개의 배열로 분할한다.
-- Concuer(정복) : 각 부분배열을 재귀적으로 병합정렬을 사용하여 정렬한다.
+- Conquer(정복) : 각 부분배열을 재귀적으로 병합정렬을 사용하여 정렬한다.
 - Combine(결합) : 부분배열을 하나의 배열로 결합한다.
 
 ### Example
@@ -271,7 +271,7 @@ void merge(int[] arr, int start, int mid, int end) {
 
 ### 시간복잡도
 
-- Avaerage Case : ![formula](<https://render.githubusercontent.com/render/math?math=O(n\log_2n)>)
+- Average Case : ![formula](<https://render.githubusercontent.com/render/math?math=O(n\log_2n)>)
 - Worst Case : ![formula](<https://render.githubusercontent.com/render/math?math=O(n^2)>)
 
 ### Source Code
