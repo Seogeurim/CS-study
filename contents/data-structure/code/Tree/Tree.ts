@@ -1,28 +1,28 @@
-class TreeNode {
-  parent: TreeNode | null;
+class TreeNode<DataType> {
+  parent: TreeNode<DataType> | null;
 
-  children: TreeNode[];
+  children: TreeNode<DataType>[];
 
-  data: any;
+  data: DataType;
 
   level: number;
 
-  constructor(key: any, level: number, parent: TreeNode | null) {
+  constructor(key: DataType, level: number, parent: TreeNode<DataType> | null) {
     this.parent = parent;
     this.data = key;
     this.children = [];
     this.level = level;
   }
 
-  addChlid(key: any): void {
+  addChlid(key: DataType): void {
     this.children.push(new TreeNode(key, this.level + 1, this));
   }
 
   printChildNodes(): void {
-    this.children.forEach((e) => console.log(e.data));
+    this.children.forEach((child) => console.log(child.data));
   }
 
-  getNode(key: any): TreeNode | null {
+  getNode(key: DataType): TreeNode<DataType> | null {
     if (key === this.data) return this;
     if (this.children.length === 0) return null;
 
@@ -34,18 +34,16 @@ class TreeNode {
     return null;
   }
 
-  removeNode(key: any): void {
+  removeNode(key: DataType): void {
     const target = this.getNode(key);
     const targetedChildren = target.parent.children;
-    targetedChildren.splice(
-      targetedChildren.findIndex((child) => child.data === key),
-      1
+    target.parent.children = targetedChildren.filter(
+      (child) => child.data !== key
     );
-    // 삭제하고자하는 노드의 부모가 가진 자식 정보인 children 배열에서 삭제하고자하는 노드를 splice 메서드를 사용해 지움.
   }
 }
 
-const root = new TreeNode("root", 1, null);
+const root = new TreeNode<string>("root", 1, null);
 root.addChlid("Fruit"); // key 값이 Fruit인 노드 생성 후 root의 자식으로 추가
 root.addChlid("Celebrity"); // key 값이 Celebrity인 노드 생성 후 root의 자식으로 추가
 root.addChlid("Game"); //  key 값이 Game인 노드 생성 후 root의 자식으로 추가
