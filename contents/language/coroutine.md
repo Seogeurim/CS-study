@@ -24,7 +24,8 @@
 
 ## Coroutine이 언제 쓰이는데?
 
-직접 누구나 이해할 수 있는 코드로 예시를 들어보겠다.
+직접 누구나 이해할 수 있는 코드로 예시를 들어보겠다.  
+예시1)
 ```cs
 void start(){
     startA();
@@ -44,6 +45,30 @@ void startB(){
 프로그램은 startA의 a가 열번, startB의 b가 다섯번 출력될 것이다.
 
 위와는 다르게 **동시에 일어나는 것처럼 프로그램을 구현**하고 싶거나 **약속된 신호를 줬을 때 시작하는 비동기를 구현**할 때 코루틴을 사용한다.
+
+예시2)   
+코루틴의 공식문서에서는 한 오브젝트의 투명도를 완전히 투명해질 때까지 Fadeout시킬 때 코루틴을 사용하지 않으면 중간값은 시각적으로 알 수 없고 순간적으로 투명해지므로 코루틴을 이용하여 투명도를 설정할 것을 권장하고 있다. 아래 코드는 순식간에 투명도가 0으로 변해버린다.
+```cs
+void Fade() {
+    for (float f = 1f; f >= 0; f -= 0.1f) {
+        Color c = renderer.material.color;
+        c.a = f;
+        renderer.material.color = c;
+    }
+}
+```
+
+아래 코드는 코루틴을 적용시킨 코드이다. 정해진 시간이나 프레임마다 투명도를 서서히 줄게 자신이 속도를 컨트롤할 수 있게 된다.
+```cs
+IEnumerator Fade() {
+    for (float f = 1f; f >= 0; f -= 0.1f) {
+        Color c = renderer.material.color;
+        c.a = f;
+        renderer.material.color = c;
+        yield return null;
+    }
+}
+```
 
 ## 코루틴이 주는 이점
 
