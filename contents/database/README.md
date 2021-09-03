@@ -229,10 +229,6 @@ RDBMS는 테이블 기반(Table based) DBMS로, 테이블들의 집합으로 데
 </p>
 </details>
 
-### Reference
-
-- 2021 시나공 정보처리기사 필기 
-
 ---
 
 ## 반정규화
