@@ -7,9 +7,9 @@
   - [DFS와 BFS](basic.md#dfs와-bfs)
   - [순열, 조합, 부분집합](basic.md#순열-조합-부분집합)
 - [백트래킹 (Backtracking)](basic.md#백트래킹-backtracking)
-- 분할 정복법 (Divide and Conquer)
-- 탐욕 알고리즘 (Greedy)
-- 동적 계획법 (Dynamic Programming)
+- [분할 정복법 (Divide and Conquer)](basic.md#분할-정복법-divide-and-conquer)
+- [탐욕 알고리즘 (Greedy)](basic.md#탐욕-알고리즘-greedy)
+- [동적 계획법 (Dynamic Programming)](basic.md#동적-계획법-dynamic-programming)
 
 ## 알고리즘 응용
 
