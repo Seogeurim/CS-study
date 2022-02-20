@@ -48,8 +48,8 @@
 <a href="https://github.com/3people">
   <img src="https://github.com/3people.png" width="100">
 </a>
-<a href="https://github.com/wntjq68">
-  <img src="https://github.com/wntjq68.png" width="100">
+<a href="https://github.com/JuseobJang">
+  <img src="https://github.com/JuseobJang.png" width="100">
 </a>
 <a href="https://github.com/Hee-Jae">
   <img src="https://github.com/Hee-Jae.png" width="100">
